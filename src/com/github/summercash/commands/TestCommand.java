@@ -9,7 +9,6 @@ public class TestCommand implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        System.out.println("console: command typed");
         sender.sendMessage("minecraft: command worked");
         return false;
     }
