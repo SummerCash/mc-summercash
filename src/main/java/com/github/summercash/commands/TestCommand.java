@@ -1,6 +1,8 @@
 package com.github.summercash.commands;
 
-import org.bukkit.plugin.java.JavaPlugin; // Not sure if I need this just yet
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 
 public class TestCommand implements CommandExecutor {
 
