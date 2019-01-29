@@ -11,4 +11,11 @@ public class TestCommand implements CommandExecutor {
         sender.sendMessage("minecraft: command worked");
         return false;
     }
+
+    @Override
+    public void onEnable() {
+        // Register our command "kit" (set an instance of your command class as executor)
+        this.getCommand("test").setExecutor(new TestCommand());
+    }
+
 }
