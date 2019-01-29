@@ -1,2 +1,3 @@
 *.log.*
 server/
+.DS_STORE
