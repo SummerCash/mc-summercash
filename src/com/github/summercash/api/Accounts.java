@@ -7,6 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
+import org.apache.commons.logging.LogFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 
@@ -51,8 +52,8 @@ class Accounts {
     }
     
     public static void main(String[] args) {
-    	
-    	
+    	Accounts req = new Accounts();
+    	String res = req.CallMethod("ok", "", "");
     }
 }
 
