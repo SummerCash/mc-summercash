@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="libs/BuildTools.jar"/>
+	<classpathentry kind="lib" path="libs/spigot-1.13.2.jar"/>
+	<classpathentry kind="lib" path="server/plugins/build.jar"/>
+	<classpathentry kind="lib" path="server/plugins/summercash.jar"/>
+	<classpathentry kind="lib" path="server/spigot-1.13.2.jar"/>
+	<classpathentry kind="lib" path="/Users/bolt/git/mc-summercash/libs/httpclient-4.5.6.jar"/>
+	<classpathentry kind="lib" path="/Users/bolt/git/mc-summercash/libs/httpcore-4.4.10.jar"/>
+	<classpathentry kind="output" path="src"/>
+</classpath>
