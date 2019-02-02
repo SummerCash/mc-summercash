@@ -32,8 +32,8 @@ public class TestNoSSL {
             StringEntity entity = new StringEntity(genReqData, ContentType.APPLICATION_FORM_URLENCODED);
             
             
-             HttpPost postreq = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
-//            HttpPost postreq = new HttpPost("http://localhost:3000/txn");
+//             HttpPost postreq = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
+            HttpPost postreq = new HttpPost("https://localhost:8080/twirp/transaction.Transaction/NewTransaction");
             System.out.println("Executing request " + postreq.getRequestLine());
             postreq.setEntity(entity);
             postreq.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
@@ -42,6 +42,7 @@ public class TestNoSSL {
             String content = EntityUtils.toString(entity);
             System.out.println(content);
             System.out.println("----------------------------------------");
+            System.out.println(res);
             
         } catch (NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
             throw new RuntimeException(e);
