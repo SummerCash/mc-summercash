@@ -13,7 +13,7 @@ public class GeneralRequest {
     GeneralRequest(String address, String address2, double amount) {
         reqData = new JSONObject();
 
-        reqData.put("nonce", "");
+        reqData.put("nonce", 0);
         reqData.put("address", address);
         reqData.put("address2", address2);
         reqData.put("amount", amount);

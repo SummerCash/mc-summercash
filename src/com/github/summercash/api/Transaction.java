@@ -41,37 +41,37 @@ class Transaction {
 
     public String NewTransaction(String to, String from, double amount) {
 
-        try (CloseableHttpClient httpclient = ignoreSSL()) {
-
-            String requestData = new GeneralRequest(to, from, amount).getData();
-            StringEntity entity = new StringEntity(requestData, ContentType.APPLICATION_FORM_URLENCODED);
-
-            HttpClient httpClient = HttpClientBuilder.create().build();
-            HttpPost request = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction/");
-            request.setEntity(entity);
-
-            HttpResponse response;
-            try {
-                response = httpClient.execute(request);
-                System.out.println(response.toString());
-                System.out.println(response.getStatusLine().getStatusCode());
-                return "";
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        
-            // HttpGet httpget = new HttpGet("https://example.com");
-            // System.out.println("Executing request " + httpget.getRequestLine());
-            
-            // httpclient.execute(httpget);
-            // System.out.println("----------------------------------------");
-        } catch (NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    	
+//        try (CloseableHttpClient httpclient = ignoreSSL()) {
+//x
+//            String requestData = new GeneralRequest(to, from, amount).getData();
+//            StringEntity entity = new StringEntity(requestData, ContentType.APPLICATION_FORM_URLENCODED);
+//
+//            HttpClient httpClient = HttpClientBuilder.create().build();
+//            HttpPost request = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction/");
+//            request.setEntity(entity);
+//
+//            HttpResponse response;
+//            try {
+//                response = httpClient.execute(request);
+//                System.out.println(response.toString());
+//                System.out.println(response.getStatusLine().getStatusCode());
+//                return "";
+//            } catch (ClientProtocolException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        
+//            // HttpGet httpget = new HttpGet("https://example.com");
+//            // System.out.println("Executing request " + httpget.getRequestLine());
+//            
+//            // httpclient.execute(httpget);
+//            // System.out.println("----------------------------------------");
+//        } catch (NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//    	
 		return "";
     }
     
