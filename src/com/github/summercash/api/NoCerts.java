@@ -16,11 +16,10 @@ import javax.net.ssl.HttpsURLConnection;
 @SuppressWarnings("deprecation")
 public class NoCerts {
 	
-	class AlwaysTrustHostnameVerifier implements X509TrustManager 
-	{
+	class AlwaysTrustHostnameVerifier implements X509TrustManager {
 	    public void checkClientTrusted( X509Certificate[] x509 , String authType ) throws CertificateException { /* nothing */ }
 	    public void checkServerTrusted( X509Certificate[] x509 , String authType ) throws CertificateException { /* nothing */ }
-	    public X509Certificate[] getAcceptedIssuers() { return null; }      
+	    public X509Certificate[] getAcceptedIssuers() { return null; }
 	}
 	
 	public void sendPost(final String request, final String urlParameters) throws IOException {
@@ -30,7 +29,8 @@ public class NoCerts {
 	    connection.setDoOutput(true);
 	    connection.setDoInput(true);
 	    connection.setInstanceFollowRedirects(false);
-	    connection.setHostnameVerifier(new AlwaysTrustHostnameVerifier());
+//	    connection.setHostnameVerifier(new AlwaysTrustHostnameVerifier());
+	    connection.setHostnameVerifier(null);
 	    connection.setRequestMethod("POST"); 
 	    connection.setRequestProperty("Content-Type", "application/json"); 
 	    connection.setRequestProperty("charset", "utf-8");
