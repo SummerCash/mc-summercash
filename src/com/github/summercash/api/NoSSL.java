@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -16,7 +15,8 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.socket.LayeredConnectionSocketFactory;
-
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
@@ -49,9 +49,9 @@ public class NoSSL {
 	                }
 	    } }, new SecureRandom());
 
-	    @SuppressWarnings("deprecation")
-	    
-		CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory( (LayeredConnectionSocketFactory) new SSLSocketFactory(sslContext)).build();
+//        @SuppressWarnings("deprecation")
+        
+		CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory( new SSLConnectionSocketFactory(sslContext)).build();
 	    HttpPost httpPost = new HttpPost(request);
 	    
 	    StringEntity reqentity = new StringEntity(postData, ContentType.APPLICATION_FORM_URLENCODED);

@@ -8,7 +8,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.post("/txn", (req, res, next) => {
+app.get("/test", (req, res) => {
+    res.send("successsss!");
+});
+
+app.post("/txn", (req, res) => {
     var sender = req.body.account;
     var recipient = req.body.account1;
     var amount = req.body.amount;

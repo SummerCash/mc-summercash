@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - NoMoreSSL",
+            "request": "launch",
+            "mainClass": "com.github.summercash.api.NoMoreSSL",
+            "projectName": "mc-summercash"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Transaction",
             "request": "launch",
             "mainClass": "com.github.summercash.api.Transaction",

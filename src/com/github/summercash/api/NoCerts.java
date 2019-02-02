@@ -10,11 +10,25 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.X509TrustManager;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 
 
 
 @SuppressWarnings("deprecation")
 public class NoCerts {
+	
+	static {
+	    HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier()
+	        {
+	            public boolean verify(String hostname, SSLSession session)
+	            {
+	                // ip address of the service URL(like.23.28.244.244)
+	                if (hostname.equals("108.41.124.60"))
+	                    return true;
+	                return false;
+	            }
+	        });
+	}
 	
 	class AlwaysTrustHostnameVerifier implements X509TrustManager {
 	    public void checkClientTrusted( X509Certificate[] x509 , String authType ) throws CertificateException { /* nothing */ }
@@ -30,7 +44,10 @@ public class NoCerts {
 	    connection.setDoInput(true);
 	    connection.setInstanceFollowRedirects(false);
 //	    connection.setHostnameVerifier(new AlwaysTrustHostnameVerifier());
-	    connection.setHostnameVerifier(null);
+	    
+	    AlwaysTrustHostnameVerifier trust = new AlwaysTrustHostnameVerifier();
+	    // connection.setHostnameVerifier(trust);
+	    
 	    connection.setRequestMethod("POST"); 
 	    connection.setRequestProperty("Content-Type", "application/json"); 
 	    connection.setRequestProperty("charset", "utf-8");

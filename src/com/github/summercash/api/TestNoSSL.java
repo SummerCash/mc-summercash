@@ -32,8 +32,8 @@ public class TestNoSSL {
             StringEntity entity = new StringEntity(genReqData, ContentType.APPLICATION_FORM_URLENCODED);
             
             
-//             HttpPost postreq = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
-            HttpPost postreq = new HttpPost("https://localhost:8080/twirp/transaction.Transaction/NewTransaction");
+             HttpPost postreq = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
+//            HttpPost postreq = new HttpPost("https://localhost:8080/twirp/transaction.Transaction/NewTransaction");
             System.out.println("Executing request " + postreq.getRequestLine());
             postreq.setEntity(entity);
             postreq.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
