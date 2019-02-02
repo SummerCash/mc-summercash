@@ -31,12 +31,12 @@ class Transaction {
         }
     }
 
-    public String CallMethod(String method, String address, String privateKey) {
-    	String requestData = new GeneralRequest("", "", 5.0).getData();
+    public String NewTransaction(String to, String from, double amount) {
+    	String requestData = new GeneralRequest(to, from, amount).getData();
         StringEntity entity = new StringEntity(requestData, ContentType.APPLICATION_FORM_URLENCODED);
 
         HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpPost request = new HttpPost("https://google.com/");
+        HttpPost request = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction/");
         request.setEntity(entity);
 
         HttpResponse response;
