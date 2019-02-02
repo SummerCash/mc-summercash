@@ -6,11 +6,8 @@ import org.apache.http.conn.ssl.*;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
-
-import sun.net.www.http.HttpClient;
 
 import javax.net.ssl.*;
 import java.io.IOException;
@@ -34,7 +31,7 @@ public class TestNoSSL {
             
             
             // HttpPost httpget = new HttpPost("https://example.com");
-            HttpPost httpget = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction/");
+            HttpPost httpget = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
             System.out.println("Executing request " + httpget.getRequestLine());
             
             HttpResponse res = httpclient.execute(httpget);

@@ -1,42 +1,24 @@
 package com.github.summercash.api;
 
-
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.*;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
+
 import javax.net.ssl.*;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 
-import org.json.simple.JSONObject;
-
-
-import sun.net.www.http.HttpClient;
-
 class Transaction {
-    private class GeneralRequest {
-        private JSONObject reqData;
-        
-        public String getData() {
-            String req = reqData.toJSONString();
-            return req;
-        }
-        
-        GeneralRequest(String address, String address2, double amount) {
-        	reqData = new JSONObject();
-
-        	reqData.put("nonce", "");
-        	reqData.put("address", address);
-        	reqData.put("address2", address2);
-        	reqData.put("amount", amount);
-            reqData.put("payload", "despacito ree");
-
-        }
-    }
 
     private static CloseableHttpClient ignoreSSL()
         throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
