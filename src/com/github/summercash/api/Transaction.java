@@ -10,27 +10,29 @@ import org.apache.http.entity.ContentType;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.simple.JSONObject;
 
-// import;
-
-class Accounts {
+class Transaction {
     private class GeneralRequest {
-        private String data;
+        private JSONObject reqData;
         
         public String getData() {
-        	return data;
+        	return reqData.toJSONString();
         }
+        
+        GeneralRequest(String address, String address2, double amount) {
+        	reqData = new JSONObject();
 
-        GeneralRequest(String address, String privateKey) {
-            data = "data={"
-                + "addres: " + address + ","
-                + "privateKey: " + privateKey
-            + "}";
+        	reqData.put("nonce", "");
+        	reqData.put("address", address);
+        	reqData.put("address2", address2);
+        	reqData.put("amount", amount);
+        	reqData.put("payload", "despacito ree");
         }
     }
 
     public String CallMethod(String method, String address, String privateKey) {
-    	String requestData = new GeneralRequest("", "").getData();
+    	String requestData = new GeneralRequest("", "", 5.0).getData();
         StringEntity entity = new StringEntity(requestData, ContentType.APPLICATION_FORM_URLENCODED);
 
         HttpClient httpClient = HttpClientBuilder.create().build();
@@ -51,10 +53,6 @@ class Accounts {
 		return "";
     }
     
-    public static void main(String[] args) {
-    	Accounts req = new Accounts();
-    	String res = req.CallMethod("ok", "", "");
-    }
 }
 
 

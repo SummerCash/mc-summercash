@@ -17,4 +17,3 @@ public class SummerCash extends JavaPlugin {
         
     }
 }
- 

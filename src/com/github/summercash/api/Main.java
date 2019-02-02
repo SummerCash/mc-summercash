@@ -1,8 +1,8 @@
 package com.github.summercash.api;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
-        System.out.println("");
+    	Transaction req = new Transaction();
+    	String res = req.CallMethod("ok", "", "");
     }
-
 }

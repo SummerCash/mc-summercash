@@ -5,6 +5,13 @@
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "com.github.summercash.api.Main",
+            "projectName": "mc-summercash"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "com.github.summercash.api.Main",
             "projectName": "mc-summercash_7c4d6338"
         }
     ]
