@@ -1,5 +1,6 @@
 package com.github.summercash.api;
 
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.*;
@@ -8,6 +9,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.util.EntityUtils;
 
 import javax.net.ssl.*;
 import java.io.IOException;
@@ -30,12 +32,15 @@ public class TestNoSSL {
             StringEntity entity = new StringEntity(genReqData, ContentType.APPLICATION_FORM_URLENCODED);
             
             
-            // HttpPost httpget = new HttpPost("https://example.com");
-            HttpPost httpget = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
-            System.out.println("Executing request " + httpget.getRequestLine());
+             HttpPost postreq = new HttpPost("https://108.41.124.60:8080/twirp/transaction.Transaction/NewTransaction");
+//            HttpPost postreq = new HttpPost("http://localhost:3000/txn");
+            System.out.println("Executing request " + postreq.getRequestLine());
+            postreq.setEntity(entity);
+            postreq.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+            HttpResponse res = httpclient.execute(postreq);
             
-            HttpResponse res = httpclient.execute(httpget);
-            System.out.println(res.toString());
+            String content = EntityUtils.toString(entity);
+            System.out.println(content);
             System.out.println("----------------------------------------");
             
         } catch (NoSuchAlgorithmException | KeyStoreException | KeyManagementException | IOException e) {
