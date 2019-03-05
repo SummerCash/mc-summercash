@@ -1,0 +1,14 @@
+name: SummerCash
+version: 0.0.1
+description: Minecraft plugin implementation of the SummerCash protocol.
+author: xoreo
+website: https://github.com/SummerCash/mc-summercash/
+
+main: com.summercash.mcsummercash.plugin.SummerCash
+
+commands:
+  test:
+    description: A command used for testing.
+    usage: /test
+
+permissions: {}

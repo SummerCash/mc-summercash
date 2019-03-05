@@ -2,31 +2,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - NoMoreSSL",
+            "name": "CodeLens (Launch) - App",
             "request": "launch",
-            "mainClass": "com.github.summercash.api.NoMoreSSL",
+            "mainClass": "com.summercash.mcsummercash.App",
             "projectName": "mc-summercash"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Transaction",
-            "request": "launch",
-            "mainClass": "com.github.summercash.api.Transaction",
-            "projectName": "mc-summercash"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "com.github.summercash.api.Main",
-            "projectName": "mc-summercash"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Main",
-            "request": "launch",
-            "mainClass": "com.github.summercash.api.Main",
-            "projectName": "mc-summercash_7c4d6338"
         }
     ]
 }
