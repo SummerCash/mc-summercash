@@ -1,4 +1,12 @@
+# Maven
+bin/
+target/
+.settings/
 .classpath
 .project
-bin/*
-target/*
+
+# Other
+server/
+
+# VS Code
+.vscode/
