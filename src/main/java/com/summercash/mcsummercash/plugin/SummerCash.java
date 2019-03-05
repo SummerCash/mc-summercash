@@ -1,7 +1,7 @@
-package com.summercash.mcsummercash;
+package com.summercash.mcsummercash.plugin;
 
+import com.summercash.mcsummercash.commands.TestCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.github.summercash.commands.TestCommand;
 
 public class SummerCash extends JavaPlugin {
     // Fired when plugin is first enabled
