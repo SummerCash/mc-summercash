@@ -2,7 +2,7 @@
 bin/
 target/
 .settings/
-.classpath
+# .classpath # For my own good
 .project
 
 # Other
