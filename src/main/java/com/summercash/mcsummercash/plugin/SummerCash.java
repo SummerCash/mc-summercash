@@ -1,19 +1,20 @@
 package com.summercash.mcsummercash.plugin;
 
-import com.summercash.mcsummercash.commands.TestCommand;
+import com.summercash.mcsummercash.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SummerCash extends JavaPlugin {
-    // Fired when plugin is first enabled
+    // Run when plugin is first enabled
 	@Override
     public void onEnable() {
-        // Register our command "kit" (set an instance of your command class as executor)
-        this.getCommand("test").setExecutor(new TestCommand());
+        // Register the commands
+        this.getCommand("summercash").setExecutor(new SummerCash());
+        this.getCommand("test").setExecutor(new Test());
     }
     
-    // Fired when plugin is disabled
+    // Run when plugin is disabled
     @Override
     public void onDisable() {
-        
+
     }
 }
