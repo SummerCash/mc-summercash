@@ -8,8 +8,8 @@ public class SummerCash extends JavaPlugin {
 	@Override
     public void onEnable() {
         // Register the commands
-        this.getCommand("summercash").setExecutor(new SummerCash());
-        this.getCommand("test").setExecutor(new Test());
+        this.getCommand("summercash").setExecutor(new SummercashCmd());
+        this.getCommand("test").setExecutor(new TestCmd());
     }
     
     // Run when plugin is disabled

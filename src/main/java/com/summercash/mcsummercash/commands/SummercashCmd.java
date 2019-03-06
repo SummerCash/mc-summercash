@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class SummerCash implements CommandExecutor {
+public class SummercashCmd implements CommandExecutor {
 
     // This method is called, when somebody uses our command
     @Override
