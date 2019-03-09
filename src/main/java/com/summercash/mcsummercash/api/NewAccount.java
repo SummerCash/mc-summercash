@@ -13,9 +13,9 @@ import javax.net.ssl.TrustManager;
 
 import org.json.simple.JSONObject;
 
-public class SSLTest {
+public class NewAccount {
 
-    public class GeneralRequest {
+    private class GeneralRequest {
         private JSONObject genReq;
         GeneralRequest(String privateKey, String address) {
             genReq = new JSONObject();
@@ -28,7 +28,11 @@ public class SSLTest {
         }
     }
 
-    public void Test() throws Exception {
+    public NewAccount() {
+
+    }
+
+    public String CreateNewAccount() throws Exception {
         // Configure the SSLContext with a TrustManager
         SSLContext ctx = SSLContext.getInstance("TLS");
         ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
@@ -64,7 +68,7 @@ public class SSLTest {
         
         // Read from conn
         DataInputStream input = new DataInputStream(conn.getInputStream());
-        System.out.println(input.readLine());
+        String message = input.readLine();
         // int c;
         // for (c = input.read(); c != -1; c = input.read());
         // System.out.print((char)c);
@@ -77,5 +81,6 @@ public class SSLTest {
         System.out.println("Resp Message:" + conn.getResponseMessage());
 
         conn.disconnect();
+        return message;
     }
 }
