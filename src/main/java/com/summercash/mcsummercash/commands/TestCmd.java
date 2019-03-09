@@ -9,7 +9,7 @@ public class TestCmd implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage("command worked");
+        sender.sendMessage("mc-summercash is loaded");
         return false;
     }
 

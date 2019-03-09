@@ -24,12 +24,13 @@ public class NewAccount {
         }
     }
 
-    public NewAccount() {
-
+    private String provider;
+    public NewAccount(String provider) {
+        this.provider = provider;
     }
 
     public String CreateNewAccount() throws Exception {
-        URL url = new URL("http://localhost:8081/twirp/accounts.Accounts/NewAccount");
+        URL url = new URL("http://" + provider + ":8081/twirp/accounts.Accounts/NewAccount");
         
         // Setup the url connection
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -49,19 +50,15 @@ public class NewAccount {
         
         // Read from connection
         DataInputStream input = new DataInputStream(conn.getInputStream());
-        // String message = input.readLine();
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(input));
 
-        BufferedReader d = new BufferedReader(new InputStreamReader(input));
-
-        String message = d.readLine();
+        String message = buffer.readLine();
         System.out.println(message);
         
+        // Close the connection(s)
         input.close();
-        
-        // System.out.println("Resp Code:" + conn.getResponseCode());
-        // System.out.println("Resp Message:" + conn.getResponseMessage());
-
         conn.disconnect();
+
         return message;
     }
 }
