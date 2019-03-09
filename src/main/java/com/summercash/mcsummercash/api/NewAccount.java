@@ -53,13 +53,13 @@ public class NewAccount {
 
         BufferedReader d = new BufferedReader(new InputStreamReader(input));
 
-        String message = d.toString();
+        String message = d.readLine();
         System.out.println(message);
         
         input.close();
         
-        System.out.println("Resp Code:" + conn.getResponseCode());
-        System.out.println("Resp Message:" + conn.getResponseMessage());
+        // System.out.println("Resp Code:" + conn.getResponseCode());
+        // System.out.println("Resp Message:" + conn.getResponseMessage());
 
         conn.disconnect();
         return message;

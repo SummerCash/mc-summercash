@@ -12,6 +12,7 @@ public class NewAccountCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         NewAccount newAccount = new NewAccount();
+        sender.sendMessage("test message");
         sender.sendMessage("Creating SummerCash account...");
 
         // Create the account
