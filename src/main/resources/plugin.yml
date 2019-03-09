@@ -15,6 +15,6 @@ commands:
     usage: /summercash
   account:
     description: Make a new SummerCash account.
-    usage: /accounts
+    usage: /account
 
 permissions: {}

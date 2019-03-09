@@ -2,13 +2,14 @@ package com.summercash.mcsummercash.api;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.SecureRandom;
-import javax.net.ssl.HostnameVerifier;
+// import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
+// import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 
 import org.json.simple.JSONObject;
@@ -34,28 +35,28 @@ public class NewAccount {
 
     public String CreateNewAccount() throws Exception {
         // Configure the SSLContext with a TrustManager
-        SSLContext ctx = SSLContext.getInstance("TLS");
-        ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
-        SSLContext.setDefault(ctx);
+        // SSLContext ctx = SSLContext.getInstance("TLS");
+        // ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
+        // SSLContext.setDefault(ctx);
 
         // URL url = new URL("https://mms.nw.ru");
-        URL url = new URL("https://localhost:8080/twirp/accounts.Accounts/NewAccount");
+        URL url = new URL("http://localhost:8081/twirp/accounts.Accounts/NewAccount");
         // {"address": "", "privateKey": ""} // Takes some JSON like this
         
         // Setup the url connection
-        HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setDoOutput(true);
         conn.setDoInput(true);
 
         // Setup ignoring SSL self-signed errors
-        conn.setHostnameVerifier(new HostnameVerifier() {
-            @Override
-            public boolean verify(String arg0, SSLSession arg1) {
-                return true;
-            }
-        });
+        // conn.setHostnameVerifier(new HostnameVerifier() {
+        //     @Override
+        //     public boolean verify(String arg0, SSLSession arg1) {
+        //         return true;
+        //     }
+        // });
         System.out.println("working");
 
         // Send the req

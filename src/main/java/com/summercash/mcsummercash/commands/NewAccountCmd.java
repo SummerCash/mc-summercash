@@ -16,12 +16,12 @@ public class NewAccountCmd implements CommandExecutor {
 
         // Create the account
         try {
+            String address = newAccount.CreateNewAccount();
+            sender.sendMessage("Address: " + address);
             sender.sendMessage("SummerCash account created!");
-            sender.sendMessage("Address: " + newAccount.CreateNewAccount());
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return true;
     }
 
