@@ -1,11 +1,12 @@
 package com.summercash.mcsummercash;
 
-/**
- * Hello world!
- *
-*/
+import com.summercash.mcsummercash.api.*;
+
 public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws Exception {
+        SSLTest sslTest = new SSLTest();
+        sslTest.Test();
+        System.out.println("main working");
+        
     }
 }

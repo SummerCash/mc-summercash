@@ -1,4 +1,4 @@
-package com.summercash.mcsummercash.plugin;
+package com.summercash.mcsummercash;
 
 import com.summercash.mcsummercash.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,5 +15,6 @@ public class SummerCash extends JavaPlugin {
     // Run when plugin is disabled
     @Override
     public void onDisable() {
+        
     }
 }
