@@ -9,9 +9,12 @@ main: com.summercash.mcsummercash.plugin.SummerCash
 commands:
   test:
     description: A command used for testing.
-    # usage: /test
+    usage: /test
   summercash:
     description: Another test command.
-    # usage: /summercash
+    usage: /summercash
+  account:
+    description: Make a new SummerCash account.
+    usage: /accounts
 
 permissions: {}
