@@ -1,16 +1,11 @@
 package com.summercash.mcsummercash.api;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.SecureRandom;
-// import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.SSLContext;
-// import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
 
 import org.json.simple.JSONObject;
 
@@ -34,14 +29,7 @@ public class NewAccount {
     }
 
     public String CreateNewAccount() throws Exception {
-        // Configure the SSLContext with a TrustManager
-        // SSLContext ctx = SSLContext.getInstance("TLS");
-        // ctx.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
-        // SSLContext.setDefault(ctx);
-
-        // URL url = new URL("https://mms.nw.ru");
         URL url = new URL("http://localhost:8081/twirp/accounts.Accounts/NewAccount");
-        // {"address": "", "privateKey": ""} // Takes some JSON like this
         
         // Setup the url connection
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -49,15 +37,7 @@ public class NewAccount {
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setDoOutput(true);
         conn.setDoInput(true);
-
-        // Setup ignoring SSL self-signed errors
-        // conn.setHostnameVerifier(new HostnameVerifier() {
-        //     @Override
-        //     public boolean verify(String arg0, SSLSession arg1) {
-        //         return true;
-        //     }
-        // });
-        System.out.println("working");
+        System.out.println("init url");
 
         // Send the req
         DataOutputStream output = new DataOutputStream(conn.getOutputStream());
@@ -65,19 +45,19 @@ public class NewAccount {
         output.writeBytes(req.getRequest());
         output.close();
 
-        System.out.println("sent data");
+        System.out.println("sent POST request");
         
-        // Read from conn
+        // Read from connection
         DataInputStream input = new DataInputStream(conn.getInputStream());
-        String message = input.readLine();
-        // int c;
-        // for (c = input.read(); c != -1; c = input.read());
-        // System.out.print((char)c);
+        // String message = input.readLine();
+
+        BufferedReader d = new BufferedReader(new InputStreamReader(input));
+
+        String message = d.toString();
+        System.out.println(message);
         
         input.close();
         
-        // System.out.println(conn.getResponseCode());
-
         System.out.println("Resp Code:" + conn.getResponseCode());
         System.out.println("Resp Message:" + conn.getResponseMessage());
 
