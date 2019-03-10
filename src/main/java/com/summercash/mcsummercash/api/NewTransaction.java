@@ -2,25 +2,29 @@ package com.summercash.mcsummercash.api;
 
 import org.json.simple.JSONObject;
 
+// NewTransaction - Create a new transaction on the SummerCash network
 class NewTransaction {
 
+    // GeneralRequest - A JSON object for go-summercash's protobuf RPC server
     private class GeneralRequest {
+        // The request itself
         private JSONObject request;
-        public GeneralRequest(String sender, String recipient, float amount) {
+
+        // Create the request
+        GeneralRequest(String address, String privateKey) {
             request = new JSONObject();
-            request.put("address", sender);
-            request.put("address2", recipient);
-            request.put("amount", amount);
-            request.put("nonce", "");
-            request.put("payload", "test payload");
+            request.put("address", address);
+            request.put("privateKey", privateKey);
         }
 
-        String GetRequest() {
+        // GetRequest - Return the JSON object as a string
+        public String GetRequest() {
             return request.toString();
         }
     }
 
-    public NewTransaction() {
-        
+    // CreateNewTransaction - Call the RPC server's NewTransaction() method and return the server's response
+    public String CreateNewTransaction() {
+        return "";    
     }
 }

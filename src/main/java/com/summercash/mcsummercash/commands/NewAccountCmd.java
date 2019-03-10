@@ -8,9 +8,10 @@ import org.json.simple.parser.JSONParser;
 
 import com.summercash.mcsummercash.api.*;
 
+// NewAccountCmd - The Minecraft command wrapper for the NewAccount class
 public class NewAccountCmd implements CommandExecutor {
 
-    // onCommand - When the command is called
+    // onCommand - Run when the command is called
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         NewAccount newAccount = new NewAccount();
