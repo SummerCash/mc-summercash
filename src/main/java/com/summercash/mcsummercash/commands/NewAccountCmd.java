@@ -34,7 +34,9 @@ public class NewAccountCmd implements CommandExecutor {
             // Tell the user their new address
             sender.sendMessage(address);
             sender.sendMessage("SummerCash account created!");
-        } catch (Exception e) {
+        }
+        
+        catch (Exception e) {
             e.printStackTrace();
         }
         return true;

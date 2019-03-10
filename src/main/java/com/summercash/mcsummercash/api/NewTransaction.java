@@ -25,6 +25,6 @@ class NewTransaction {
 
     // CreateNewTransaction - Call the RPC server's NewTransaction() method and return the server's response
     public String CreateNewTransaction() {
-        return "";    
+        return "";
     }
 }

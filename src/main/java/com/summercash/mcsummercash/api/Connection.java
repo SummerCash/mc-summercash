@@ -25,7 +25,9 @@ class Connection {
         try {
             conn = getConn();
             established = true;
-        } catch (IOException e) {
+        }
+        
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -33,7 +35,7 @@ class Connection {
     // getConn - Return an HttpURLConnection based off of the connection url
     private HttpURLConnection getConn() throws IOException {
         // Create the URL
-        URL url = new URL("http://" + Common.PROVIDER + ":8081/twirp/" + endpoint);
+        URL url = new URL("http://" + Common.PROVIDER + ":" + Common.PORT + "/twirp/" + endpoint);
         
         // Create the httpURLConnection
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
