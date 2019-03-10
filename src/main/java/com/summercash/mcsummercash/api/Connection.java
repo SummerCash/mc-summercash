@@ -11,7 +11,7 @@ import java.net.URL;
 import com.summercash.mcsummercash.common.Common;
 
 // Connection - This class is just a wrapper for reading and writing from a connection
-class Connection {
+public class Connection {
 
     // Initialize the connection data
     private String endpoint;

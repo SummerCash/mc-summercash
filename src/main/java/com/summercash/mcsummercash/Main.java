@@ -4,7 +4,8 @@ import com.summercash.mcsummercash.api.*;
 
 // Main - The project's main function. This doesn't have much of a purpose
 public class Main {
-    public static void main(String[] args) throws Exception {
+
+    private static void NewTxn() {
         NewTransaction newTransaction = new NewTransaction();
 
         try {
@@ -15,5 +16,23 @@ public class Main {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void NewAccount() {
+        NewAccount newAccount = new NewAccount();
+
+        try {
+            String response = newAccount.CreateNewAccount();
+            System.out.println(response);
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        NewTxn();
+        NewAccount();
     }
 }
