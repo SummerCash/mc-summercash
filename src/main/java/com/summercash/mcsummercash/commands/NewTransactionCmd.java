@@ -17,28 +17,17 @@ public class NewTransactionCmd implements CommandExecutor {
         String senderAddr, recipientAddr;
         double amount;
     
-        // Check that the sender address is not null
-        if (args[1] != "") {
-            senderAddr = args[1];
-        } else {
-            sender.sendMessage("The sender address must not be blank!");
-            return false;
-        }
-        
-        // Check that the recipient address is not null
-        if (args[2] != "") {
-            recipientAddr = args[2];
-        } else {
-            sender.sendMessage("The recipient address must not be blank!");
-            return false;
-        }
+        // for (int i = 0; i < args.length; i++) {
+        //     sender.sendMessage("args[" + i + "]" + ": " + args[i]);
+        // }
 
-        // Check that the amount is not null
-        if (args[3] != "") {
-            amount = Double.parseDouble(args[3]);
-        } else {
-            sender.sendMessage("The amount must not be blank!");
+        // Check that the inputs are not null
+        if (args.length != 3) {
             return false;
+        } else {
+            senderAddr = args[0];
+            recipientAddr = args[1];
+            amount = Double.parseDouble(args[2]);
         }
         
         // Create a NewTransaction class (API)
@@ -47,12 +36,14 @@ public class NewTransactionCmd implements CommandExecutor {
         try {
             // Read and parse the server's response
             String response = newTransaction.CreateNewTransaction(senderAddr, recipientAddr, amount);
+            System.out.println(response);
+
             JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
             String parsedMessage = (String) parsedResponse.get("message");
             
             // Get the transaction hash
             String transactionHash = parsedMessage.split("hash: ")[1];
-            
+        
             // Tell the user that the transaction has completed successfully
             sender.sendMessage("Transaction '" + transactionHash + "' created!");
         }
