@@ -23,10 +23,11 @@ public class NewAccountCmd implements CommandExecutor {
             JSONObject parsedResponse = new JSONObject(response);
             String message = parsedResponse.getString("message");
 
-            // Parse
+            // Parse the data to get addr and privkey
             String[] parsed = message.split(", PrivateKey: ", 2);
             String address = parsed[0];
             String privateKey = parsed[1];
+            // System.out.println(address);
 
             sender.sendMessage("Address: " + address);
             sender.sendMessage("SummerCash account created!");
