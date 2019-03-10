@@ -10,11 +10,10 @@ import com.summercash.mcsummercash.api.*;
 
 public class NewAccountCmd implements CommandExecutor {
 
-    // This method is called, when somebody uses our command
+    // onCommand - When the command is called
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         NewAccount newAccount = new NewAccount();
-        sender.sendMessage("test message");
         sender.sendMessage("Creating SummerCash account...");
 
         // Create the account
@@ -29,9 +28,7 @@ public class NewAccountCmd implements CommandExecutor {
             
             // Get the addr and privkey
             String address = parsed[0];
-            String privateKey = parsed[1];
-            System.out.println(address);
-            System.out.println(privateKey);
+            String privateKey = parsed[1]; // Do something with this later?
 
             // Tell the user their new address
             sender.sendMessage(address);
