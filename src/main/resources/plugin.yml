@@ -16,5 +16,8 @@ commands:
   account:
     description: Make a new SummerCash account.
     usage: /account
+  transaction:
+    description: Make a new transaction
+    usage: /transaction <sender address> <recipient address> <amount>
 
 permissions: {}

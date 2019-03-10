@@ -15,7 +15,7 @@ public class NewTransactionCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String senderAddr, recipientAddr;
-        float amount;
+        double amount;
     
         // Check that the sender address is not null
         if (args[1] != "") {
@@ -35,7 +35,7 @@ public class NewTransactionCmd implements CommandExecutor {
 
         // Check that the amount is not null
         if (args[3] != "") {
-            senderAddr = args[3];
+            amount = Double.parseDouble(args[3]);
         } else {
             sender.sendMessage("The amount must not be blank!");
             return false;
