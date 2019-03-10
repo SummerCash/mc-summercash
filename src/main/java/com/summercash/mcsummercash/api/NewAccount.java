@@ -17,14 +17,9 @@ public class NewAccount {
         }
     }
 
-    private String provider;
-    public NewAccount(String provider) {
-        this.provider = provider;
-    }
-
     public String CreateNewAccount() throws Exception {
         // Create a connection
-        Connection connection = new Connection(provider, "accounts.Accounts/NewAccount");
+        Connection connection = new Connection("accounts.Accounts/NewAccount");
 
         // Send the req
         GeneralRequest req = new GeneralRequest("", "");

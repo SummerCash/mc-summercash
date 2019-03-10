@@ -8,19 +8,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import com.summercash.mcsummercash.common.Common;
+
 // Connection - This class is just a wrapper for reading and writing from a connection
 class Connection {
-    String provider, endpoint;
+    String endpoint;
     HttpURLConnection conn;
 
-    public Connection(String provider, String endpoint) throws IOException {
-        this.provider = provider;
+    public Connection(String endpoint) throws IOException {
         this.endpoint = endpoint;
         conn = getURL();
     }
 
     private HttpURLConnection getURL() throws IOException {
-        URL url = new URL("http://" + provider + ":8081/twirp/" + endpoint);
+        URL url = new URL("http://" + Common.PROVIDER + ":8081/twirp/" + endpoint);
         
         // Setup the url connection
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -12,7 +12,7 @@ public class NewAccountCmd implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        NewAccount newAccount = new NewAccount("localhost");
+        NewAccount newAccount = new NewAccount();
         sender.sendMessage("test message");
         sender.sendMessage("Creating SummerCash account...");
 
