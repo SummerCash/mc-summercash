@@ -1,6 +1,6 @@
 package com.summercash.mcsummercash.api;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 public class NewAccount {
 
