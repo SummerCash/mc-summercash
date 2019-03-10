@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import com.summercash.mcsummercash.api.*;
 
@@ -20,17 +21,20 @@ public class NewAccountCmd implements CommandExecutor {
         try {
             // Get the response and parse
             String response = newAccount.CreateNewAccount();
-            JSONObject parsedResponse = new JSONObject(response);
-            String message = parsedResponse.getString("message");
+            JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
 
-            // Parse the data to get addr and privkey
-            String[] parsed = message.split(", PrivateKey: ", 2);
+            // Retrieve the 'message' from JSON
+            String rawMessage = (String) parsedResponse.get("message");
+            String[] parsed = rawMessage.split(", ", 2);
+            
+            // Get the addr and privkey
             String address = parsed[0];
             String privateKey = parsed[1];
             System.out.println(address);
             System.out.println(privateKey);
 
-            sender.sendMessage("Address: " + address);
+            // Tell the user their new address
+            sender.sendMessage(address);
             sender.sendMessage("SummerCash account created!");
         } catch (Exception e) {
             e.printStackTrace();
