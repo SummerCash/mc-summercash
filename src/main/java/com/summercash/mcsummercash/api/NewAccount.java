@@ -10,7 +10,8 @@ public class NewAccount {
         // The request itself
         private JSONObject request;
 
-        // Create the request
+        // GeneralRequest - Create the request
+        @SuppressWarnings("unchecked") // The warnings really don't mean anything
         GeneralRequest(String address, String privateKey) {
             request = new JSONObject();
             request.put("address", address);
