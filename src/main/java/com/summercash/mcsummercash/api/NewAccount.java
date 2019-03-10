@@ -1,63 +1,43 @@
 package com.summercash.mcsummercash.api;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import org.json.simple.JSONObject;
 
+// NewAccount - Create a new account on the Summercash network
 public class NewAccount {
 
+    // GeneralRequest - A JSON object for go-summercash's protobuf RPC server
     private class GeneralRequest {
-        private JSONObject genReq;
-        GeneralRequest(String privateKey, String address) {
-            genReq = new JSONObject();
-            genReq.put("address", address);
-            genReq.put("privateKey", privateKey);
+        // The request itself
+        private JSONObject request;
+
+        // Create the request
+        GeneralRequest(String address, String privateKey) {
+            request = new JSONObject();
+            request.put("address", address);
+            request.put("privateKey", privateKey);
         }
 
-        String getRequest() {
-            return genReq.toString();
+        // GetRequest - Return the JSON object as a string
+        public String GetRequest() {
+            return request.toString();
         }
     }
 
-    private String provider;
-    public NewAccount(String provider) {
-        this.provider = provider;
-    }
-
+    // CreateNewAccount - Call the RPC server's NewAccount() method and return the server's response
     public String CreateNewAccount() throws Exception {
-        URL url = new URL("http://" + provider + ":8081/twirp/accounts.Accounts/NewAccount");
-        
-        // Setup the url connection
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-        conn.setDoOutput(true);
-        conn.setDoInput(true);
-        System.out.println("init url");
+        // Create a connection
+        Connection connection = new Connection("accounts.Accounts/NewAccount");
 
         // Send the req
-        DataOutputStream output = new DataOutputStream(conn.getOutputStream());
         GeneralRequest req = new GeneralRequest("", "");
-        output.writeBytes(req.getRequest());
-        output.close();
-
-        System.out.println("sent POST request");
+        connection.Write(req.GetRequest());
         
         // Read from connection
-        DataInputStream input = new DataInputStream(conn.getInputStream());
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(input));
-
-        String message = buffer.readLine();
+        String message = connection.Read();
         System.out.println(message);
-        
-        // Close the connection(s)
-        input.close();
-        conn.disconnect();
+
+        // Close the connection
+        connection.Close();
 
         return message;
     }

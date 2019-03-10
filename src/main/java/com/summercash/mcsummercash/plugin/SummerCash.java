@@ -3,8 +3,9 @@ package com.summercash.mcsummercash.plugin;
 import com.summercash.mcsummercash.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
+// SummerCash - The main Minecraft plugin file
 public class SummerCash extends JavaPlugin {
-    // Run when plugin is first enabled
+    // onEnable - Runs when the plugin is enabled upon MC server startup
 	@Override
     public void onEnable() {
         // Register the commands
