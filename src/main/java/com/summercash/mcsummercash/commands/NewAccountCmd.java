@@ -27,7 +27,8 @@ public class NewAccountCmd implements CommandExecutor {
             String[] parsed = message.split(", PrivateKey: ", 2);
             String address = parsed[0];
             String privateKey = parsed[1];
-            // System.out.println(address);
+            System.out.println(address);
+            System.out.println(privateKey);
 
             sender.sendMessage("Address: " + address);
             sender.sendMessage("SummerCash account created!");
