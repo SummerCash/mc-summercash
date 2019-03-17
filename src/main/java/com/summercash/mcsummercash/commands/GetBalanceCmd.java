@@ -34,7 +34,10 @@ class GetBalanceCmd implements CommandExecutor {
             // Parse the response
             JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
             String parsedMessage = (String) parsedResponse.get("message");
-            
+            String balance = parsedMessage.split("balance: ")[1];
+
+            // Tell the user the balance
+            sender.sendMessage("Balance: " + balance);
         }
 
         catch (IOException e) {
