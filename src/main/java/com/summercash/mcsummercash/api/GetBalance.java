@@ -26,7 +26,7 @@ public class GetBalance {
     }
 
     // GetAccountBalance - Return the balance of an account
-    public float GetAccountBalance(String account) throws IOException {
+    public String GetAccountBalance(String account) throws IOException {
         // Create a connection
         Connection connection = new Connection("chain.Chain/GetBalance");
         
