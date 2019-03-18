@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.json.simple.JSONObject;
 
+// GetBalance - Get the balance associated with a certain account address
 public class GetBalance {
 
     // GeneralRequest - A JSON object for go-summercash's protobuf RPC server
@@ -20,7 +21,6 @@ public class GetBalance {
 
         // GetRequest - Return the JSON object as a string
         public String GetRequest() {
-            System.out.println(request.toString());
             return request.toString();
         }
     }
