@@ -10,7 +10,7 @@ then
     cp target/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
     echo "installed the latest build to the server!"
 
-elif [ "$1" == "--install" ]
+elif [ "$1" == "--install-server" ]
 then
     wget "http://mattnappo.com/summercash/server.zip"
     unzip server.zip
@@ -20,6 +20,6 @@ else
     echo "options:"
     echo "  --build"
     echo "      build the latest version of the plugin"
-    echo "  --install"
+    echo "  --install-server"
     echo "      install a dev bukkit server"
 fi

@@ -10,17 +10,14 @@ public class TestGetBalance {
 
     @Test
     public void TestGetAccountBalance() {
+        GetBalance getBalance = new GetBalance();
+
         try {
-            Connection connection = new Connection("chain.Chain/GetBalance");
-
-            String data = "{\"address\": \"0x04013a3e055fd5d07a18a1d5f9b88abba6f9\"}";
-            connection.Write(data);
-
-            String response = connection.Read();
+            String response = getBalance.GetAccountBalance("0x04015c81297276300dba9bb18bf4441f3b09");
             assertTrue(response, response != "");
-
-            connection.Close();
-        } catch (IOException e) {
+        }
+        
+        catch (IOException e) {
             fail(e.getLocalizedMessage());
         }
     }
