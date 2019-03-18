@@ -12,6 +12,7 @@ public class SummerCash extends JavaPlugin {
         this.getCommand("test").setExecutor(new TestCmd());
         this.getCommand("account").setExecutor(new NewAccountCmd());
         this.getCommand("transaction").setExecutor(new NewTransactionCmd());
+        this.getCommand("balance").setExecutor(new GetBalanceCmd());
     }
     
     // Run when plugin is disabled

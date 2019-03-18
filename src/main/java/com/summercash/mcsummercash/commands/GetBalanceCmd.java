@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-class GetBalanceCmd implements CommandExecutor {
+public class GetBalanceCmd implements CommandExecutor {
 
     // onCommand - Run when the command is called
     @Override
