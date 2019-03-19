@@ -1,6 +1,6 @@
 package com.summercash.mcsummercash.commands;
 
-import com.summercash.mcsummercash.api.NewTransaction;
+import com.summercash.mcsummercash.api.CreateTransaction;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,7 +31,7 @@ public class NewTransactionCmd implements CommandExecutor {
         }
         
         // Create a NewTransaction class (API)
-        NewTransaction newTransaction = new NewTransaction();
+        CreateTransaction newTransaction = new CreateTransaction();
 
         try {
             // Read and parse the server's response

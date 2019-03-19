@@ -1,15 +1,11 @@
 package com.summercash.mcsummercash.api;
 
-import org.apache.commons.codec.binary.Base64;
 import java.io.IOException;
 
-import org.json.simple.JSONObject;
-
 // NewTransaction - Create a new transaction on the SummerCash network
-public class NewTransaction {
+public class CreateTransaction {
 
-    // CreateNewTransaction - Call the RPC server's NewTransaction() method and
-    // return the server's response
+    // CreateNewTransaction - Create a transaction on the SummerCash network
     public String CreateNewTransaction(String sender, String recipient, double amount) throws IOException {
         // Create a connection
         Connection connection = new Connection("transaction.Transaction/NewTransaction");
