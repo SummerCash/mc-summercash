@@ -16,7 +16,6 @@ public class TestCreateTransaction {
                 "0x04015d0c9699aa74db4edc851e322ae9b028",
                 0.0
             );
-            System.out.println(response);
             assertTrue(response, response != "");
         }
 

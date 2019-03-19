@@ -38,7 +38,6 @@ public class NewAccount {
 
         // Read from connection
         String message = connection.Read();
-        System.out.println(message);
 
         // Close the connection
         connection.Close();

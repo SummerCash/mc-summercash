@@ -13,7 +13,7 @@ public class TestGetBalance {
         GetBalance getBalance = new GetBalance();
 
         try {
-            String response = getBalance.GetAccountBalance("0x04015c81297276300dba9bb18bf4441f3b09");
+            String response = getBalance.GetAccountBalance("0x04015d0c9699aa74db4edc851e322ae9b028");
             assertTrue(response, response != "");
         }
         

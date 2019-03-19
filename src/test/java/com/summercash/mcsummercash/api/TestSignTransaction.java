@@ -5,12 +5,13 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 
+import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
 public class TestSignTransaction {
 
     @Test
-    public void TestSignTransactionHash() throws IOException {
+    public void TestSignTransactionHash() throws IOException, ParseException {
         // Create a transaction
         CreateTransaction createTransaction = new CreateTransaction();
         String txnResponse = createTransaction.CreateNewTransaction(

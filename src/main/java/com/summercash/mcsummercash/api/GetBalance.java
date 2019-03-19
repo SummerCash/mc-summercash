@@ -38,7 +38,6 @@ public class GetBalance {
 
         // Read from the connection
         String message = connection.Read();
-        System.out.println(message);
 
         // Close the connection
         connection.Close();

@@ -8,4 +8,7 @@ public class Common {
 
     // PORT - The port for the go-summercash RPC node
     public static final String PORT = "8081";
+
+    // LOGGING - Should RPC logging be on or of?
+    public static final boolean LOGGING = true;
 }

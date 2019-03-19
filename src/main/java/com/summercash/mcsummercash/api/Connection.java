@@ -17,6 +17,7 @@ public class Connection {
     private String endpoint;
     private HttpURLConnection conn;
     private boolean established;
+    private String URLString;
 
     // Connection - The connection constructor, 
     public Connection(String endpoint) throws IOException {
@@ -36,6 +37,7 @@ public class Connection {
     private HttpURLConnection getConn() throws IOException {
         // Create the URL
         URL url = new URL("http://" + Common.PROVIDER + ":" + Common.PORT + "/twirp/" + endpoint);
+        URLString = url.toString();
         
         // Create the httpURLConnection
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -47,7 +49,6 @@ public class Connection {
         conn.setDoInput(true);
 
         // Return the connection
-        System.out.println("init url '" + url + "'");
         return conn;
     }
 
@@ -70,9 +71,13 @@ public class Connection {
             DataInputStream input = new DataInputStream(conn.getInputStream());
             BufferedReader buffer = new BufferedReader(new InputStreamReader(input));            
             
-            // Read some data
+            // Read (and print) some data
             String message = buffer.readLine();
             input.close();
+            if (Common.LOGGING) {
+                System.out.println("\n" + URLString);
+                System.out.println("READ: " + message + "\n\n");
+            }
             return message;
         }
         return null;
