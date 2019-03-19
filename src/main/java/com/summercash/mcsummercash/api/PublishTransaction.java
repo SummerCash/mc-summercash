@@ -16,6 +16,7 @@ public class PublishTransaction {
             "",
             0.0
         );
+        System.out.println("PUBLISH: " + req.GetRequest());
         connection.Write(req.GetRequest());
 
         // Read from connection

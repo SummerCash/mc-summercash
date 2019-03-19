@@ -1,14 +1,11 @@
 package com.summercash.mcsummercash.api;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.IOException;
-
-import com.summercash.mcsummercash.common.Common;
-
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
+
+import com.summercash.mcsummercash.common.Common;
 
 public class TestPublishTransaction {
 
@@ -29,7 +26,8 @@ public class TestPublishTransaction {
         signTransaction.SignTransactionHash(transactionHash);
 
         // Publish the transaction
-        // PublishTransaction publishTransaction = new PublishTransaction();
-        // String response = publishTransaction.PublishTransactionHash(transactionHash);
+        PublishTransaction publishTransaction = new PublishTransaction();
+        String response = publishTransaction.PublishTransactionHash(transactionHash);
+        assertTrue(response, response != "");
     }
 }

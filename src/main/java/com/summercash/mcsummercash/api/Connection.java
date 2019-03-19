@@ -24,7 +24,7 @@ public class Connection {
         this.endpoint = endpoint;
         established = false;
         try {
-            conn = getConn();
+            conn = GetConn();
             established = true;
         }
         
@@ -33,8 +33,8 @@ public class Connection {
         }
     }
 
-    // getConn - Return an HttpURLConnection based off of the connection url
-    private HttpURLConnection getConn() throws IOException {
+    // GetConn - Return an HttpURLConnection based off of the connection url
+    private HttpURLConnection GetConn() throws IOException {
         // Create the URL
         URL url = new URL("http://" + Common.PROVIDER + ":" + Common.PORT + "/twirp/" + endpoint);
         URLString = url.toString();
