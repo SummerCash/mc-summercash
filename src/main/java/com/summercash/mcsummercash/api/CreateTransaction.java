@@ -29,8 +29,8 @@ public class CreateTransaction {
     }
 
     // Parse - Parse the return of the CreateNewTransaction method for the transaction hash
-    public String Parse(String raw) throws ParseException {
-        JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(raw));
+    public String Parse(String response) throws ParseException {
+        JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
         String parsedMessage = (String) parsedResponse.get("message");
         
         // Get the transaction hash

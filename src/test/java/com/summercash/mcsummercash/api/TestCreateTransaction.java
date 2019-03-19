@@ -4,14 +4,19 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class TestNewTransaction {
+public class TestCreateTransaction {
 
     @Test
     public void TestCreateNewTransaction() {
-        NewTransaction newTransaction = new NewTransaction();
+        CreateTransaction newTransaction = new CreateTransaction();
 
         try {
-            String response = newTransaction.CreateNewTransaction("0x0400fadce1aef1990196200628dfd46ec5f0", "0x0401c3f0b97400b3bcc568e3c305bd2222ac", 0.0);
+            String response = newTransaction.CreateNewTransaction(
+                "0x040040dc9d49726e5c9d21a3ee3da7e2be5e",
+                "0x04015d0c9699aa74db4edc851e322ae9b028",
+                0.0
+            );
+            System.out.println(response);
             assertTrue(response, response != "");
         }
 

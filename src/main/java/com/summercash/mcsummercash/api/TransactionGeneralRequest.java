@@ -29,6 +29,7 @@ public class TransactionGeneralRequest {
     
     // GetRequest - Return the JSON object as a string
     public String GetRequest() {
+        System.out.println(request.toString());
         return request.toString();
     }
 }

@@ -12,7 +12,7 @@ public class SignTransaction {
 
         // Make & send the request
         TransactionGeneralRequest req = new TransactionGeneralRequest(
-            "HASH",
+            transactionHash,
             "",
             0.0
         );
