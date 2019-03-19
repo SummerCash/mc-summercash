@@ -1,6 +1,8 @@
 package com.summercash.mcsummercash.api;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 // NewAccount - Create a new account on the Summercash network
 public class NewAccount {
@@ -24,7 +26,8 @@ public class NewAccount {
         }
     }
 
-    // CreateNewAccount - Call the RPC server's NewAccount() method and return the server's response
+    // CreateNewAccount - Call the RPC server's NewAccount() method and return the
+    // server's response
     public String CreateNewAccount() throws Exception {
         // Create a connection
         Connection connection = new Connection("accounts.Accounts/NewAccount");
@@ -32,7 +35,7 @@ public class NewAccount {
         // Send the req
         GeneralRequest req = new GeneralRequest("", "");
         connection.Write(req.GetRequest());
-        
+
         // Read from connection
         String message = connection.Read();
         System.out.println(message);
@@ -42,4 +45,18 @@ public class NewAccount {
 
         return message;
     }
+
+    // Parse - Parse the return of the CreateNewAccount method for the address of the new account
+    public String Parse(String response) throws ParseException {
+        JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
+
+        // Retrieve the 'message' from JSON
+        String rawMessage = (String) parsedResponse.get("message");
+        String[] parsed = rawMessage.split(", ", 2);
+
+        String address = parsed[0];
+        String privateKey = parsed[1]; // Do something with this later?
+
+		return address;
+	}
 }

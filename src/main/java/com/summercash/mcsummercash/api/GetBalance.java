@@ -3,6 +3,8 @@ package com.summercash.mcsummercash.api;
 import java.io.IOException;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 // GetBalance - Get the balance associated with a certain account address
 public class GetBalance {
@@ -29,7 +31,7 @@ public class GetBalance {
     public String GetAccountBalance(String account) throws IOException {
         // Create a connection
         Connection connection = new Connection("chain.Chain/GetBalance");
-        
+
         // Send the request
         GeneralRequest req = new GeneralRequest(account);
         connection.Write(req.GetRequest());
@@ -43,5 +45,17 @@ public class GetBalance {
 
         return message;
     }
+
+    // Parse - Parse the return of the GetAccountBalance method for the balance of
+    // the account
+    public String Parse(String response) throws ParseException {
+        // Parse the response
+        JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
+        String parsedMessage = (String) parsedResponse.get("message");
+
+        // Get the balance
+        String balance = parsedMessage.split("balance: ")[1];
+        return balance;
+	}
 
 }

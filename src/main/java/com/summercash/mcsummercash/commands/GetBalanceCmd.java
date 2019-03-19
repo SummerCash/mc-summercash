@@ -30,11 +30,7 @@ public class GetBalanceCmd implements CommandExecutor {
         try {
             // Call the API and get the response
             String response = getBalance.GetAccountBalance(address);
-
-            // Parse the response
-            JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
-            String parsedMessage = (String) parsedResponse.get("message");
-            String balance = parsedMessage.split("balance: ")[1];
+            String balance = getBalance.Parse(response);
 
             // Tell the user the balance
             sender.sendMessage("Balance: " + balance);

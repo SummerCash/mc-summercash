@@ -2,6 +2,10 @@ package com.summercash.mcsummercash.api;
 
 import java.io.IOException;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 // NewTransaction - Create a new transaction on the SummerCash network
 public class CreateTransaction {
 
@@ -13,7 +17,7 @@ public class CreateTransaction {
         // Send the req
         TransactionGeneralRequest req = new TransactionGeneralRequest(sender, recipient, amount);
         connection.Write(req.GetRequest());
-        
+
         // Read from connection
         String message = connection.Read();
         System.out.println(message);
@@ -22,5 +26,15 @@ public class CreateTransaction {
         connection.Close();
 
         return message;
+    }
+
+    // Parse - Parse the return of the CreateNewTransaction method for the transaction hash
+    public String Parse(String raw) throws ParseException {
+        JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(raw));
+        String parsedMessage = (String) parsedResponse.get("message");
+        
+        // Get the transaction hash
+        String transactionHash = parsedMessage.split("hash: ")[1];
+        return transactionHash;
     }
 }

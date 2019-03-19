@@ -36,13 +36,7 @@ public class NewTransactionCmd implements CommandExecutor {
         try {
             // Read and parse the server's response
             String response = newTransaction.CreateNewTransaction(senderAddr, recipientAddr, amount);
-            System.out.println(response);
-
-            JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
-            String parsedMessage = (String) parsedResponse.get("message");
-            
-            // Get the transaction hash
-            String transactionHash = parsedMessage.split("hash: ")[1];
+            String transactionHash = newTransaction.Parse(response);
         
             // Tell the user that the transaction has completed successfully
             sender.sendMessage("Transaction '" + transactionHash + "' created!");
