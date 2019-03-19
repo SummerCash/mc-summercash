@@ -4,6 +4,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import com.summercash.mcsummercash.common.Common;
+
 public class TestCreateTransaction {
 
     @Test
@@ -12,8 +14,8 @@ public class TestCreateTransaction {
 
         try {
             String response = newTransaction.CreateNewTransaction(
-                "0x040040dc9d49726e5c9d21a3ee3da7e2be5e",
-                "0x04015d0c9699aa74db4edc851e322ae9b028",
+                Common.XoreoAddress,
+                Common.OtherAddress,
                 0.0
             );
             assertTrue(response, response != "");

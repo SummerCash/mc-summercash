@@ -54,7 +54,7 @@ public class NewAccount {
         String[] parsed = rawMessage.split(", ", 2);
 
         String address = parsed[0];
-        String privateKey = parsed[1]; // Do something with this later?
+        // String privateKey = parsed[1]; // Do something with this later?
 
 		return address;
 	}

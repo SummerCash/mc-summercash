@@ -25,6 +25,5 @@ public class SignTransaction {
         connection.Close();
 
         return message;
-
     }
 }

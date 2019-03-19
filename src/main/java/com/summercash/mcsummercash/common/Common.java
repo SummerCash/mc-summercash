@@ -11,4 +11,8 @@ public class Common {
 
     // LOGGING - Should RPC logging be on or of?
     public static final boolean LOGGING = true;
+
+    // Some addresses that have a balance
+    public static final String XoreoAddress = "0x040040dc9d49726e5c9d21a3ee3da7e2be5e";
+    public static final String OtherAddress = "0x04015d0c9699aa74db4edc851e322ae9b028";   
 }

@@ -7,8 +7,6 @@ import com.summercash.mcsummercash.api.GetBalance;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class GetBalanceCmd implements CommandExecutor {

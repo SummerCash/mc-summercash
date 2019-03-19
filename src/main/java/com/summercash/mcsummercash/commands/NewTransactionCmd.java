@@ -5,8 +5,6 @@ import com.summercash.mcsummercash.api.CreateTransaction;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 // NewTransactionCmd - The Minecraft command wrapper for the NewTransaction class
 public class NewTransactionCmd implements CommandExecutor {
@@ -16,10 +14,6 @@ public class NewTransactionCmd implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         String senderAddr, recipientAddr;
         double amount;
-    
-        // for (int i = 0; i < args.length; i++) {
-        //     sender.sendMessage("args[" + i + "]" + ": " + args[i]);
-        // }
 
         // Check that the inputs are not null
         if (args.length != 3) {

@@ -10,10 +10,10 @@ import com.summercash.mcsummercash.common.Common;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
-public class TestSignTransaction {
+public class TestPublishTransaction {
 
     @Test
-    public void TestSignTransactionHash() throws IOException, ParseException {
+    public void TestPublishTransactionHash() throws IOException, ParseException {
         // Create a transaction
         CreateTransaction createTransaction = new CreateTransaction();
         String txnResponse = createTransaction.CreateNewTransaction(
@@ -26,14 +26,10 @@ public class TestSignTransaction {
 
         // Sign the transaction
         SignTransaction signTransaction = new SignTransaction();
+        signTransaction.SignTransactionHash(transactionHash);
 
-        try {
-            String signResponse = signTransaction.SignTransactionHash(transactionHash);
-            assertTrue(signResponse, signResponse != "");
-        }
-
-        catch (Exception e) {
-            fail(e.getLocalizedMessage());
-        }
+        // Publish the transaction
+        // PublishTransaction publishTransaction = new PublishTransaction();
+        // String response = publishTransaction.PublishTransactionHash(transactionHash);
     }
 }

@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 
+import com.summercash.mcsummercash.common.Common;
+
 public class TestGetBalance {
 
     @Test
@@ -13,8 +15,13 @@ public class TestGetBalance {
         GetBalance getBalance = new GetBalance();
 
         try {
-            String response = getBalance.GetAccountBalance("0x04015d0c9699aa74db4edc851e322ae9b028");
-            assertTrue(response, response != "");
+            // Check one account
+            String xoreoResponse = getBalance.GetAccountBalance(Common.XoreoAddress);
+            assertTrue(xoreoResponse, xoreoResponse != "");
+
+            // Check another account
+            String otherResponse = getBalance.GetAccountBalance(Common.OtherAddress);
+            assertTrue(otherResponse, otherResponse != "");
         }
         
         catch (IOException e) {
