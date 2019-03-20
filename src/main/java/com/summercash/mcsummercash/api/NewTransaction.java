@@ -37,12 +37,32 @@ public class NewTransaction {
 
     // Sign - Sign the transaction
     private boolean Sign() {
-        return false;
+        SignTransaction transactionSigner = new SignTransaction();
+
+        // Call the SignTransactionHash method
+        try {
+            transactionSigner.SignTransactionHash(transactionHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        
+        return true;
     }
 
     // Publish - Publish the transaction to the network
     private boolean Publish() {
-        return false;
+        PublishTransaction transactionPublisher = new PublishTransaction();
+
+        // Call the PublishTransactionHash method
+        try {
+            transactionPublisher.PublishTransactionHash(transactionHash);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
 }
