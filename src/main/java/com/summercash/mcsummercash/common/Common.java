@@ -13,6 +13,6 @@ public class Common {
     public static final boolean LOGGING = true;
 
     // Some addresses that have a balance
-    public static final String XoreoAddress = "0x0400f938b308c49c82f9753e43019b336b7e";
-    public static final String OtherAddress = "0x0400e609aaf1d3818b90f7c858a5acb8e5f6";
+    public static final String XoreoAddress = "0x0401baf5eee418d8d269624b83f872d38b35";
+    public static final String OtherAddress = "0x04010dfbaac4ab79ec130d84ed47249f4ac4";
 }

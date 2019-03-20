@@ -37,12 +37,12 @@ public class NewTransaction {
 
     // Sign - Sign the transaction
     private boolean Sign() {
-
+        return false;
     }
 
     // Publish - Publish the transaction to the network
     private boolean Publish() {
-
+        return false;
     }
 
 }
