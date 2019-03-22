@@ -11,3 +11,6 @@ TODO
 
 # VS Code
 .vscode/
+
+# LevelDB
+data/*
