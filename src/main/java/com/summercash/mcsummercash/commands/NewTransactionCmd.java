@@ -36,6 +36,7 @@ public class NewTransactionCmd implements CommandExecutor {
             sender.sendMessage("Transaction '" + transactionHash + "' created!");
         }
 
+        // If err != nil
         catch (Exception e) {
             e.printStackTrace();
             return false;
