@@ -14,20 +14,14 @@ public class GetBalanceCmd implements CommandExecutor {
     // onCommand - Run when the command is called
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        String address;
-
-        if (args.length != 1) {
-            return false;
-        } else {
-            address = args[0];
-        }
+        String mcUsername = sender.toString();
 
         // Link to the API
         GetBalance getBalance = new GetBalance();
 
         try {
             // Call the API and get the response
-            String response = getBalance.GetAccountBalance(address);
+            String response = getBalance.GetAccountBalance(mcUsername);
             String balance = getBalance.Parse(response);
 
             // Tell the user the balance

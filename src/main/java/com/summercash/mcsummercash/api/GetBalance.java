@@ -2,6 +2,8 @@ package com.summercash.mcsummercash.api;
 
 import java.io.IOException;
 
+import com.summercash.mcsummercash.database.Database;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -28,12 +30,22 @@ public class GetBalance {
     }
 
     // GetAccountBalance - Return the balance of an account
-    public String GetAccountBalance(String account) throws IOException {
+    public String GetAccountBalance(String mcUsername) throws IOException {
         // Create a connection
         Connection connection = new Connection("chain.Chain/GetBalance");
 
+        // Retrieve the address from the MC username
+        Database usernameDB = new Database();
+        String address = usernameDB.GetAddress(mcUsername);
+        // if (address == null) {
+        //     usernameDB.PutAddress(mcUsername, address);
+        //     // will happen on new account
+        // }
+        System.out.println("ADDRESS: " + address);
+        usernameDB.Close();
+
         // Send the request
-        GeneralRequest req = new GeneralRequest(account);
+        GeneralRequest req = new GeneralRequest(address);
         connection.Write(req.GetRequest());
 
         // Read from the connection
