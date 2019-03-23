@@ -18,7 +18,8 @@ public class NewAccountCmd implements CommandExecutor {
         // Create the account
         try {
             // Get the response and parse
-            String mcUsername = sender.toString();
+            String rawMCUsername = sender.toString();
+            String mcUsername = rawMCUsername.split("name=")[1];
             String address = newAccount.CreateNewAccount(mcUsername); // Already parsed data
 
             // Tell the user their new address

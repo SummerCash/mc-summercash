@@ -40,15 +40,22 @@ public class NewAccount {
 
         // Read from connection
         String message = connection.Read();
-        
-        // Parse and add to the database
-        Database usernameDB = new Database();
-        usernameDB.Open();
         String parsedAddress = Parse(message);
-        usernameDB.PutAddress(mcUsername, parsedAddress);
 
-        // Close the database
-        usernameDB.Close();
+        System.out.println("mcUsername: " + mcUsername);
+        System.out.println("parsedAddress: " + parsedAddress);
+        
+        // // Parse and add to the database
+        // Database usernameDB = new Database();
+        // usernameDB.Open();
+        
+        // usernameDB.PutAddress(mcUsername, parsedAddress);
+        // System.out.println("This code ran");
+
+        
+
+        // // Close the database
+        // usernameDB.Close();
 
         // Close the connection
         connection.Close();

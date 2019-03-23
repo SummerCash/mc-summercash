@@ -12,8 +12,8 @@ public class TestNewTransaction {
         NewTransaction newTransaction = new NewTransaction();
 
         boolean completedTxn = newTransaction.Transaction(
-            Common.XoreoAddress,
-            Common.OtherAddress,
+            Common.TestingAddress1,
+            Common.TestingAddress2,
             0.0
         );
 
