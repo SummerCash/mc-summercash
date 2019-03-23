@@ -1,5 +1,10 @@
 package com.summercash.mcsummercash.common;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 // Common - Common methods & data to be accessed from the entire project
 public class Common {
     // PROVIDER - The ip address of the go-summercash RPC node
@@ -16,5 +21,12 @@ public class Common {
     public static final String XoreoAddress = "0x0401baf5eee418d8d269624b83f872d38b35";
     public static final String OtherAddress = "0x04010dfbaac4ab79ec130d84ed47249f4ac4";
 
-    public static final String dbPath = "data/usernames";
+    public static final String dbPath = "data/";
+
+    public void CreateDirIfDoesNotExist(String filename) throws IOException {
+        Path path = Paths.get(filename);
+        if (!Files.exists(path)) {
+            Files.createDirectory(path);
+        }
+    }
 }

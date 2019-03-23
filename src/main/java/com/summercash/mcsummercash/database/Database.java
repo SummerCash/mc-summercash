@@ -13,14 +13,19 @@ public class Database {
         // Initialize the database
         Options options = new Options();
         options.createIfMissing(true);
-        File dbFile = new File(Common.dbPath);
+        
+        // Setup the db path
+        Common common = new Common();
+        common.CreateDirIfDoesNotExist(Common.dbPath);
+        String path = Common.dbPath + "username";
+        File dbFile = new File(path);
         
         // Open the database
         DB usernameDB = factory.open(dbFile, options);
 
         try {
             // Put something
-            byte[] key = bytes("dowlandaiello");
+            byte[] key = bytes("bob");
             byte[] value = bytes("https://github.com/" + asString(key));
             usernameDB.put(key, value);
 
