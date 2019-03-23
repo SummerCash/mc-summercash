@@ -8,6 +8,7 @@ target/
 # Other
 server/
 TODO
+.DS_STORE
 
 # VS Code
 .vscode/

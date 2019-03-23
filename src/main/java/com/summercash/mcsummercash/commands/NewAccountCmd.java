@@ -18,11 +18,11 @@ public class NewAccountCmd implements CommandExecutor {
         // Create the account
         try {
             // Get the response and parse
-            String response = newAccount.CreateNewAccount();
-            String address = newAccount.Parse(response);
+            String mcUsername = sender.toString();
+            String address = newAccount.CreateNewAccount(mcUsername); // Already parsed data
 
             // Tell the user their new address
-            sender.sendMessage(address);
+            sender.sendMessage("Address: " + address);
             sender.sendMessage("SummerCash account created!");
         }
         

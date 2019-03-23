@@ -6,6 +6,11 @@ import com.summercash.mcsummercash.database.Database;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        new Database();
+        Database db = new Database();
+        db.Open();
+
+        db.PrintDatabase();
+        
+        db.Close();
     }
 }

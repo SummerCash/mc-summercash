@@ -36,11 +36,11 @@ public class GetBalance {
 
         // Retrieve the address from the MC username
         Database usernameDB = new Database();
+        usernameDB.Open();
+
+        // Get the address
         String address = usernameDB.GetAddress(mcUsername);
-        // if (address == null) {
-        //     usernameDB.PutAddress(mcUsername, address);
-        //     // will happen on new account
-        // }
+
         System.out.println("ADDRESS: " + address);
         usernameDB.Close();
 
