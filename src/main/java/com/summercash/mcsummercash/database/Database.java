@@ -40,9 +40,10 @@ public class Database {
 
     // GetAddress - Get an address given a Minecraft username
     public String GetAddress(String username) {
+        // Check that the database is open
         if (!isOpen) {
             return "";
-        } // Check that the database is open
+        }
 
         // Init the key
         byte[] key = bytes(username);
@@ -67,7 +68,7 @@ public class Database {
                 System.out.println(loopKey + " = " + loopValue);
             }
         } finally {
-            // Make sure you close the iterator to avoid resource leaks.
+            // Close the iterator to avoid resource leakage
             try {
                 iterator.close();
             } catch (IOException e) {
@@ -79,7 +80,10 @@ public class Database {
  
     // PutAddress - Put a username-address pair into the database
     public void PutAddress(String username, String address) {
-        if (!isOpen) { return; } // Check that the database is open
+        // Check that the database is open
+        if (!isOpen) {
+            return;
+        }
 
         // Put the username (key) and address (value) into the database
         byte[] key = bytes(username);
@@ -89,8 +93,10 @@ public class Database {
 
     // Close - Close the database
     public void Close() throws IOException {
-        usernameDB.close();
-        isOpen = false;
+        if (isOpen) {
+            usernameDB.close();
+            isOpen = false;
+        }
     }
 
 }

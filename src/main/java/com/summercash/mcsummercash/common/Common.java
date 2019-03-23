@@ -18,8 +18,8 @@ public class Common {
     public static final boolean LOGGING = true;
 
     // Some addresses that have a balance
-    public static final String TestingAddress1 = "0x04000d5c4ff051cf3f2607502356dc30da48";
-    public static final String TestingAddress2 = "0x04013f22d843158760739b7bd6093be2ec63";
+    public static final String TestingAddress1 = "0x0400da09c75d8536c7ccbf9246046f765dd7";
+    public static final String TestingAddress2 = "0x0401f5288d7cccc925fe80479d205e378e60";    
 
     public static final String dbPath = "data/";
 

@@ -3,11 +3,15 @@
 if [ "$1" == "--build" ]
 then
     # Build the Java code
-    mvn package
+    # mvn package
+    mvn clean compile assembly:single
 
     # Install the plugin to the MC test server
-    rm -f server/plugins/mc-summercash-v0.1.jar
-    cp target/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
+    # rm -f server/plugins/mc-summercash-v0.1.jar
+    rm -f server/plugins/mc-summercash-v0.1-jar-with-dependencies.jar
+
+    # cp target/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
+    cp target/mc-summercash-v0.1-jar-with-dependencies.jar server/plugins/mc-summercash-v0.1.jar
     echo "installed the latest build to the server!"
 
 elif [ "$1" == "--install-server" ]

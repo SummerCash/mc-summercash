@@ -45,17 +45,15 @@ public class NewAccount {
         System.out.println("mcUsername: " + mcUsername);
         System.out.println("parsedAddress: " + parsedAddress);
         
-        // // Parse and add to the database
-        // Database usernameDB = new Database();
-        // usernameDB.Open();
+        // Parse and add to the database
+        Database usernameDB = new Database();
+        usernameDB.Open();
         
-        // usernameDB.PutAddress(mcUsername, parsedAddress);
-        // System.out.println("This code ran");
+        usernameDB.PutAddress(mcUsername, parsedAddress);
+        System.out.println("This code ran");
 
-        
-
-        // // Close the database
-        // usernameDB.Close();
+        // Close the database
+        usernameDB.Close();
 
         // Close the connection
         connection.Close();
