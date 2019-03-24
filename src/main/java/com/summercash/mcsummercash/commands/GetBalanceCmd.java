@@ -27,7 +27,7 @@ public class GetBalanceCmd implements CommandExecutor {
             String balance = getBalance.Parse(response);
 
             // Tell the user the balance
-            sender.sendMessage("Balance: " + balance);
+            sender.sendMessage("Balance: " + balance + " SMC");
         }
 
         catch (IOException e) {
