@@ -9,6 +9,7 @@ target/
 server/
 TODO
 .DS_STORE
+server.zip
 
 # VS Code
 .vscode/

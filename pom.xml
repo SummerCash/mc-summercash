@@ -74,7 +74,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>com.summercash.mcsummercash.plugin.SummerCash</mainClass>
+                                <mainClass>com.summercash.mcsummercash.SummerCash</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>

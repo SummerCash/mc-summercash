@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 public class Common {
     // PROVIDER - The ip address of the go-summercash RPC node
     public static final String PROVIDER = "localhost";
+    // public static final String PROVIDER = "192.168.1.253";
     // public static String PROVIDER = "108.41.124.60"; // @dowlandaiello's node
 
     // PORT - The port for the go-summercash RPC node
@@ -18,8 +19,8 @@ public class Common {
     public static final boolean LOGGING = true;
 
     // Some addresses that have a balance
-    public static final String TestingAddress1 = "0x0400da09c75d8536c7ccbf9246046f765dd7";
-    public static final String TestingAddress2 = "0x0401f5288d7cccc925fe80479d205e378e60";    
+    public static final String TestingAddress1 = "0x04009f03ae9b2ac9b3df67e8e8fc31681a8d";
+    public static final String TestingAddress2 = "0x04016dcffaa8d4e67d63c4cbd3fbaa5cb76c";
 
     public static final String dbPath = "data/";
 

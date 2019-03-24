@@ -2,10 +2,10 @@ package com.summercash.mcsummercash;
 
 import org.junit.Test;
 
-public class TestMain {
+public class TestSummerCash {
 
     @Test
-    public void TestMain_() {
+    public void TestMain() {
         
     }
 }

@@ -4,7 +4,7 @@ description: Minecraft plugin implementation of the SummerCash protocol.
 author: xoreo
 website: https://github.com/SummerCash/mc-summercash/
 
-main: com.summercash.mcsummercash.plugin.SummerCash
+main: com.summercash.mcsummercash.plugin.SummerCashPlugin
 
 commands:
   test:
