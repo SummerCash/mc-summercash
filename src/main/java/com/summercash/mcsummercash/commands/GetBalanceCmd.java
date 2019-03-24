@@ -14,7 +14,9 @@ public class GetBalanceCmd implements CommandExecutor {
     // onCommand - Run when the command is called
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        String mcUsername = sender.toString();
+        // Get the Minecraft username
+        String rawMCUsername = sender.toString();
+        String mcUsername = rawMCUsername.split("name=")[1].replace("}", "");
 
         // Link to the API
         GetBalance getBalance = new GetBalance();
@@ -32,7 +34,7 @@ public class GetBalanceCmd implements CommandExecutor {
             e.printStackTrace();
             return false;
         }
-        
+
         catch (ParseException e) {
             e.printStackTrace();
             return false;
