@@ -41,7 +41,7 @@ public class Database {
     public String GetAddress(String username) {
         // Check that the database is open
         if (!isOpen) {
-            return "";
+            return null;
         }
 
         // Init the key

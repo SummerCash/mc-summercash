@@ -41,7 +41,6 @@ public class GetBalance {
         // Get the address
         String address = usernameDB.GetAddress(mcUsername);
 
-        System.out.println("ADDRESS: " + address);
         usernameDB.Close();
 
         // Send the request
@@ -67,6 +66,6 @@ public class GetBalance {
         // Get the balance
         String balance = parsedMessage.split("balance: ")[1];
         return balance;
-	}
+    }
 
 }

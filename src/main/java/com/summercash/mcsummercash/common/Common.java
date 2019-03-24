@@ -30,4 +30,8 @@ public class Common {
             Files.createDirectory(path);
         }
     }
+
+    public static String ParseMCUsername(String rawUsername) {
+        return rawUsername.split("name=")[1].replace("}", "");
+    }
 }

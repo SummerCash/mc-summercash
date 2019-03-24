@@ -31,6 +31,14 @@ public class NewAccount {
     // CreateNewAccount - Call the RPC server's NewAccount() method and return the
     // server's response
     public String CreateNewAccount(String mcUsername) throws Exception {
+        // Make sure that the user doesn't have an account already
+        Database usernameDB = new Database();
+        usernameDB.Open();
+        if (usernameDB.GetAddress(mcUsername) != null) {
+            usernameDB.Close();
+            return null;
+        }
+
         // Create a connection
         Connection connection = new Connection("accounts.Accounts/NewAccount");
 
@@ -46,9 +54,6 @@ public class NewAccount {
         System.out.println("parsedAddress: " + parsedAddress);
 
         // Parse and add to the database
-        Database usernameDB = new Database();
-        usernameDB.Open();
-
         usernameDB.PutAddress(mcUsername, parsedAddress);
 
         // Close the database

@@ -15,3 +15,6 @@ check balance:<br>
 transaction:<br>
  * sender (db lookup)
  * first argument (db lookup)
+
+ Some extra notes:
+ Make sure that a user can't create multiple accounts
