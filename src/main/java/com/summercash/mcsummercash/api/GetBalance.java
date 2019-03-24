@@ -31,17 +31,20 @@ public class GetBalance {
 
     // GetAccountBalance - Return the balance of an account
     public String GetAccountBalance(String mcUsername) throws IOException {
-        // Create a connection
-        Connection connection = new Connection("chain.Chain/GetBalance");
-
         // Retrieve the address from the MC username
         Database usernameDB = new Database();
         usernameDB.Open();
 
-        // Get the address
+        // Get the address & make sure that the user has an account
         String address = usernameDB.GetAddress(mcUsername);
-
+        if (address == null) {
+            usernameDB.Close();
+            return null;
+        }
         usernameDB.Close();
+
+        // Create a connection
+        Connection connection = new Connection("chain.Chain/GetBalance");
 
         // Send the request
         GeneralRequest req = new GeneralRequest(address);

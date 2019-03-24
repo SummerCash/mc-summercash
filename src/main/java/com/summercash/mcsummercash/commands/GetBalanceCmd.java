@@ -2,13 +2,13 @@ package com.summercash.mcsummercash.commands;
 
 import java.io.IOException;
 
-import com.summercash.mcsummercash.api.GetBalance;
-import com.summercash.mcsummercash.common.Common;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.json.simple.parser.ParseException;
+
+import com.summercash.mcsummercash.api.GetBalance;
+import com.summercash.mcsummercash.common.Common;
 
 public class GetBalanceCmd implements CommandExecutor {
 
@@ -24,9 +24,15 @@ public class GetBalanceCmd implements CommandExecutor {
         try {
             // Call the API and get the response
             String response = getBalance.GetAccountBalance(mcUsername);
-            String balance = getBalance.Parse(response);
 
             // Tell the user the balance
+            if (response == null) {
+                sender.sendMessage("You don't have an account! Create one with /account.");
+                return true;
+            }
+
+            // Parse the response & tell the user
+            String balance = getBalance.Parse(response);
             sender.sendMessage("Balance: " + balance + " SMC");
         }
 
