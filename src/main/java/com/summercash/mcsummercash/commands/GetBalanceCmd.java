@@ -3,6 +3,7 @@ package com.summercash.mcsummercash.commands;
 import java.io.IOException;
 
 import com.summercash.mcsummercash.api.GetBalance;
+import com.summercash.mcsummercash.common.Common;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,8 +16,7 @@ public class GetBalanceCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Get the Minecraft username
-        String rawMCUsername = sender.toString();
-        String mcUsername = rawMCUsername.split("name=")[1].replace("}", "");
+        String mcUsername = Common.ParseMCUsername(sender.toString());
 
         // Link to the API
         GetBalance getBalance = new GetBalance();

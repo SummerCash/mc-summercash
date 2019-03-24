@@ -18,3 +18,5 @@ transaction:<br>
 
  Some extra notes:
  Make sure that a user can't create multiple accounts
+
+ /balance should only work when a user has an account created.

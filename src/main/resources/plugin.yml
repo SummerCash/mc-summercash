@@ -10,9 +10,6 @@ commands:
   test:
     description: A command used for testing.
     usage: /test
-  summercash:
-    description: Another test command.
-    usage: /summercash
   account:
     description: Make a new SummerCash account.
     usage: /account
