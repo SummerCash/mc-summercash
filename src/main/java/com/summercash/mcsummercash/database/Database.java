@@ -19,8 +19,7 @@ public class Database {
     // Database - The constructor
     public Database() throws IOException {
         // Setup the db path
-        Common common = new Common();
-        common.CreateDirIfDoesNotExist(Common.dbPath);
+        Common.CreateDirIfDoesNotExist(Common.dbPath);
         String path = Common.dbPath + "username";
         dbFile = new File(path);
 
@@ -77,7 +76,7 @@ public class Database {
         }
 
     }
- 
+
     // PutAddress - Put a username-address pair into the database
     public void PutAddress(String username, String address) {
         // Check that the database is open

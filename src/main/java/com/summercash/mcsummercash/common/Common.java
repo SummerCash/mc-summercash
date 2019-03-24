@@ -19,12 +19,12 @@ public class Common {
     public static final boolean LOGGING = true;
 
     // Some addresses that have a balance
-    public static final String TestingAddress1 = "0x04009f03ae9b2ac9b3df67e8e8fc31681a8d";
-    public static final String TestingAddress2 = "0x04016dcffaa8d4e67d63c4cbd3fbaa5cb76c";
+    public static final String TestingAddress1 = "0x040021c2524506b1d724bbd326ca8049f5fa";
+    public static final String TestingAddress2 = "0x0400fc65fa379d133abe75dda1d6e4dd5a49";
 
     public static final String dbPath = "data/";
 
-    public void CreateDirIfDoesNotExist(String filename) throws IOException {
+    public static void CreateDirIfDoesNotExist(String filename) throws IOException {
         Path path = Paths.get(filename);
         if (!Files.exists(path)) {
             Files.createDirectory(path);

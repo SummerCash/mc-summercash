@@ -44,13 +44,12 @@ public class NewAccount {
 
         System.out.println("mcUsername: " + mcUsername);
         System.out.println("parsedAddress: " + parsedAddress);
-        
+
         // Parse and add to the database
         Database usernameDB = new Database();
         usernameDB.Open();
-        
+
         usernameDB.PutAddress(mcUsername, parsedAddress);
-        System.out.println("This code ran");
 
         // Close the database
         usernameDB.Close();
@@ -61,7 +60,8 @@ public class NewAccount {
         return parsedAddress;
     }
 
-    // Parse - Parse the return of the CreateNewAccount method for the address of the new account
+    // Parse - Parse the return of the CreateNewAccount method for the address of
+    // the new account
     public String Parse(String response) throws ParseException {
         JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
 
@@ -73,6 +73,6 @@ public class NewAccount {
         String rawAddress = address.substring(10); // Remove the "\nAddress: "
         // String privateKey = parsed[1]; // Do something with this later?
 
-		return rawAddress;
-	}
+        return rawAddress;
+    }
 }

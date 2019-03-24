@@ -2,16 +2,18 @@
 
 if [ "$1" == "--build" ]
 then
-    # Build the Java code
-    # mvn package
-    mvn clean compile assembly:single
+    # Build the Java code (semi-manually)
+    mvn compile
+    mkdir -p target/classes/lib
+    cp lib/leveldbjni-all-1.8.jar target/classes/lib
+    # echo "Class-Path: lib/leveldbjni-all-1.8.jar" >> target/classes/MANIFEST.MF
+    cd target/classes/ && jar -cvf mc-summercash-v0.1.jar .
 
+    cd ../../
+    
     # Install the plugin to the MC test server
-    # rm -f server/plugins/mc-summercash-v0.1.jar
-    rm -f server/plugins/mc-summercash-v0.1-jar-with-dependencies.jar
-
-    # cp target/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
-    cp target/mc-summercash-v0.1-jar-with-dependencies.jar server/plugins/mc-summercash-v0.1.jar
+    rm -f server/plugins/mc-summercash-v0.1.jar
+    cp target/classes/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
     echo "installed the latest build to the server!"
 
 elif [ "$1" == "--install-server" ]
