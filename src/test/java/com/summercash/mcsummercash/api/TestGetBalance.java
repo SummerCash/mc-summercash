@@ -8,18 +8,18 @@ import java.io.IOException;
 
 public class TestGetBalance {
 
-    // @Test
-    // public void TestGetAccountBalance() {
-    //     GetBalance getBalance = new GetBalance();
+    @Test
+    public void TestGetAccountBalance() {
+        GetBalance getBalance = new GetBalance();
 
-    //     try {
-    //         // Check one account
-    //         String xoreoResponse = getBalance.GetAccountBalance("bob");
-    //         assertTrue(xoreoResponse, xoreoResponse != "");
-    //     }
-        
-    //     catch (IOException e) {
-    //         fail(e.getLocalizedMessage());
-    //     }
-    // }
+        try {
+            // Check one account
+            String response = getBalance.GetAccountBalance("alice");
+            assertTrue(response, response != "");
+        }
+
+        catch (IOException e) {
+            fail(e.getLocalizedMessage());
+        }
+    }
 }

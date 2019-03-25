@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.json.simple.parser.ParseException;
 
-import com.summercash.mcsummercash.api.GetBalance;
+import com.summercash.mcsummercash.api.*;
 import com.summercash.mcsummercash.common.Common;
 
 public class GetBalanceCmd implements CommandExecutor {
