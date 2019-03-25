@@ -17,8 +17,12 @@ public class NewTransaction {
         String senderAddress = usernameDB.GetAddress(sender);
         String recipientAddress = usernameDB.GetAddress(recipient);
 
+        System.out.println("senderAddress: " + senderAddress);
+        System.out.println("recipientAddress: " + recipientAddress);
+
         // Check that the database calls are not null
         if (senderAddress == null || recipientAddress == null) {
+            System.out.println("db lookup failed");
             usernameDB.Close();
             return null;
         }
