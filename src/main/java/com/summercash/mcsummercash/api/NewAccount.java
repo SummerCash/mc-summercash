@@ -1,5 +1,7 @@
 package com.summercash.mcsummercash.api;
 
+import com.summercash.mcsummercash.database.Database;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -28,7 +30,15 @@ public class NewAccount {
 
     // CreateNewAccount - Call the RPC server's NewAccount() method and return the
     // server's response
-    public String CreateNewAccount() throws Exception {
+    public String CreateNewAccount(String mcUsername) throws Exception {
+        // Make sure that the user doesn't have an account already
+        Database usernameDB = new Database();
+        usernameDB.Open();
+        if (usernameDB.GetAddress(mcUsername) != null) {
+            usernameDB.Close();
+            return null;
+        }
+
         // Create a connection
         Connection connection = new Connection("accounts.Accounts/NewAccount");
 
@@ -38,14 +48,25 @@ public class NewAccount {
 
         // Read from connection
         String message = connection.Read();
+        String parsedAddress = Parse(message);
+
+        System.out.println("mcUsername: " + mcUsername);
+        System.out.println("parsedAddress: " + parsedAddress);
+
+        // Parse and add to the database
+        usernameDB.PutAddress(mcUsername, parsedAddress);
+
+        // Close the database
+        usernameDB.Close();
 
         // Close the connection
         connection.Close();
 
-        return message;
+        return parsedAddress;
     }
 
-    // Parse - Parse the return of the CreateNewAccount method for the address of the new account
+    // Parse - Parse the return of the CreateNewAccount method for the address of
+    // the new account
     public String Parse(String response) throws ParseException {
         JSONObject parsedResponse = (JSONObject) (new JSONParser().parse(response));
 
@@ -54,8 +75,9 @@ public class NewAccount {
         String[] parsed = rawMessage.split(", ", 2);
 
         String address = parsed[0];
+        String rawAddress = address.substring(10); // Remove the "\nAddress: "
         // String privateKey = parsed[1]; // Do something with this later?
 
-		return address;
-	}
+        return rawAddress;
+    }
 }

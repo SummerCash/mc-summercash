@@ -1,22 +1,43 @@
 package com.summercash.mcsummercash.api;
 
+import java.io.IOException;
+
+import com.summercash.mcsummercash.database.Database;
+
 // NewTransaction - Create, sign, and publish a transaction to the SummerCash network
 // This is a wrapper class that makes the process of creating a transaction easier
 public class NewTransaction {
     private String transactionHash;
 
     // Transaction - Call the internal create, sign, and publish methods
-    public boolean Transaction(String sender, String recipient, double amount) {
+    public String Transaction(String sender, String recipient, double amount) throws IOException {
+        // Get the addresses from the database
+        Database usernameDB = new Database();
+        usernameDB.Open();
+        String senderAddress = usernameDB.GetAddress(sender);
+        String recipientAddress = usernameDB.GetAddress(recipient);
+
+        System.out.println("senderAddress: " + senderAddress);
+        System.out.println("recipientAddress: " + recipientAddress);
+
+        // Check that the database calls are not null
+        if (senderAddress == null || recipientAddress == null) {
+            System.out.println("db lookup failed");
+            usernameDB.Close();
+            return null;
+        }
+        usernameDB.Close();
+
         // Call the internal methods
-        boolean didCreate = Create(sender, recipient, amount);
+        boolean didCreate = Create(senderAddress, recipientAddress, amount);
         boolean didSign = Sign();
         boolean didPublish = Publish();
 
         if (didCreate && didSign && didPublish) {
-            return true;
+            return transactionHash;
         }
 
-        return false;
+        return null;
     }
 
     // Create - Create a transaction
@@ -46,7 +67,7 @@ public class NewTransaction {
             e.printStackTrace();
             return false;
         }
-        
+
         return true;
     }
 

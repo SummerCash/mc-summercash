@@ -13,11 +13,8 @@ public class TestPublishTransaction {
     public void TestPublishTransactionHash() throws IOException, ParseException {
         // Create a transaction
         CreateTransaction createTransaction = new CreateTransaction();
-        String txnResponse = createTransaction.CreateNewTransaction(
-            Common.XoreoAddress,
-            Common.OtherAddress,
-            0.0
-        );
+        String txnResponse = createTransaction.CreateNewTransaction(Common.TestingAddress1, Common.TestingAddress2,
+                0.0);
 
         String transactionHash = createTransaction.Parse(txnResponse);
 

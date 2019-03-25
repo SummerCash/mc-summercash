@@ -17,8 +17,8 @@ public class TestSignTransaction {
         // Create a transaction
         CreateTransaction createTransaction = new CreateTransaction();
         String txnResponse = createTransaction.CreateNewTransaction(
-            Common.XoreoAddress,
-            Common.OtherAddress,
+            Common.TestingAddress1,
+            Common.TestingAddress2,
             0.0
         );
 

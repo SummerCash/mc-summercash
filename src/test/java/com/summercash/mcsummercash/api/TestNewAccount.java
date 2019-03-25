@@ -11,7 +11,7 @@ public class TestNewAccount {
         NewAccount newAccount = new NewAccount();
 
         try {
-            String response = newAccount.CreateNewAccount();
+            String response = newAccount.CreateNewAccount("alice");
             assertTrue(response, response != "");
         }
 

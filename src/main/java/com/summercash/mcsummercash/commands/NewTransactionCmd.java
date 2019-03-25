@@ -1,6 +1,7 @@
 package com.summercash.mcsummercash.commands;
 
-import com.summercash.mcsummercash.api.CreateTransaction;
+import com.summercash.mcsummercash.api.NewTransaction;
+import com.summercash.mcsummercash.common.Common;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,30 +13,40 @@ public class NewTransactionCmd implements CommandExecutor {
     // onCommand - Run when the command is called
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        String senderAddr, recipientAddr;
+        String recipientUsername;
         double amount;
 
         // Check that the inputs are not null
-        if (args.length != 3) {
+        if (args.length != 2) {
             return false;
-        } else {
-            senderAddr = args[0];
-            recipientAddr = args[1];
-            amount = Double.parseDouble(args[2]);
         }
-        
+
+        // Store the values from the command arguments
+        recipientUsername = args[0];
+        amount = Double.parseDouble(args[1]);
+
+        // Get the sender's username
+        String senderUsername = Common.ParseMCUsername(sender.toString());
+
         // Create a NewTransaction class (API)
-        CreateTransaction newTransaction = new CreateTransaction();
+        NewTransaction transactionCreator = new NewTransaction();
 
         try {
-            // Read and parse the server's response
-            String response = newTransaction.CreateNewTransaction(senderAddr, recipientAddr, amount);
-            String transactionHash = newTransaction.Parse(response);
-        
+            // Read the server's response
+            String response = transactionCreator.Transaction(senderUsername, recipientUsername, amount);
+
+            // Check that the transaction happened
+            if (response == null) {
+                sender.sendMessage("That transaction can't happen!");
+                return true;
+            }
+
             // Tell the user that the transaction has completed successfully
-            sender.sendMessage("Transaction '" + transactionHash + "' created!");
+            sender.sendMessage("Transaction completed!");
+            sender.sendMessage("Transaction address: " + response);
         }
 
+        // If err != nil
         catch (Exception e) {
             e.printStackTrace();
             return false;

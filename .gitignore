@@ -8,6 +8,11 @@ target/
 # Other
 server/
 TODO
+.DS_STORE
+server.zip
 
 # VS Code
 .vscode/
+
+# LevelDB
+data/*

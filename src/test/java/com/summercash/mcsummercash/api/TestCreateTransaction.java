@@ -14,8 +14,8 @@ public class TestCreateTransaction {
 
         try {
             String response = newTransaction.CreateNewTransaction(
-                Common.XoreoAddress,
-                Common.OtherAddress,
+                Common.TestingAddress1,
+                Common.TestingAddress2,
                 0.0
             );
             assertTrue(response, response != "");

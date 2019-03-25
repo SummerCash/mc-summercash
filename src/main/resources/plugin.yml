@@ -4,23 +4,20 @@ description: Minecraft plugin implementation of the SummerCash protocol.
 author: xoreo
 website: https://github.com/SummerCash/mc-summercash/
 
-main: com.summercash.mcsummercash.plugin.SummerCash
+main: com.summercash.mcsummercash.plugin.SummerCashPlugin
 
 commands:
   test:
     description: A command used for testing.
     usage: /test
-  summercash:
-    description: Another test command.
-    usage: /summercash
   account:
     description: Make a new SummerCash account.
     usage: /account
   transaction:
     description: Make a new transaction
-    usage: /transaction <sender address> <recipient address> <amount>
+    usage: /transaction <recipient address> <amount>
   balance:
     description: Check the balance of an account
-    usage: /balance <account address>
+    usage: /balance
 
 permissions: {}
