@@ -17,5 +17,5 @@ This pre-built server does not come with the mc-summercash plugin installed. So,
 
 `/transaction <recipient> <amount of SMC>` will create, sign, and publish a transaction for the given amount to the SummerCash network. Like `/balance`, this command will only work if a user has created an account.
 
-## Other
-Please report any bugs you find.
+## Bugs
+Please report any bugs you find in the bugs.md file. A formal write-up is not necessary.

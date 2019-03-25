@@ -1,6 +1,5 @@
 package com.summercash.mcsummercash.commands;
 
-import com.summercash.mcsummercash.api.CreateTransaction;
 import com.summercash.mcsummercash.api.NewTransaction;
 import com.summercash.mcsummercash.common.Common;
 

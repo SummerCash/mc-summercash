@@ -11,12 +11,8 @@ public class PublishTransaction {
         Connection connection = new Connection("transaction.Transaction/Publish");
 
         // Make & send the request
-        TransactionGeneralRequest req = new TransactionGeneralRequest(
-            transactionHash,
-            "",
-            0.0
-        );
-        System.out.println("PUBLISH: " + req.GetRequest());
+        TransactionGeneralRequest req = new TransactionGeneralRequest(transactionHash, "", 0.0);
+
         connection.Write(req.GetRequest());
 
         // Read from connection
