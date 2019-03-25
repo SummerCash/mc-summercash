@@ -15,7 +15,7 @@ commands:
     usage: /account
   transaction:
     description: Make a new transaction
-    usage: /transaction <sender address> <recipient address> <amount>
+    usage: /transaction <recipient address> <amount>
   balance:
     description: Check the balance of an account
     usage: /balance
