@@ -1,6 +1,8 @@
 # mc-summercash
 A Minecraft plugin allowing players to transfer their SummerCash within Minecraft.
 
+v1.0 has just been released!
+
 ## Usage
 The build.sh script is quite handy. Use it like so:
 
