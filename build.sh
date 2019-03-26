@@ -1,17 +1,17 @@
 #!/bin/bash
-
+VERSION=1.0
 if [ "$1" == "--build" ]
 then
     # Build the Java code (semi-manually)
     mvn compile
     mkdir -p target/classes/lib
     cp lib/leveldbjni-all-1.8.jar target/classes/lib
-    cd target/classes/ && jar -cvf mc-summercash-v0.1.jar .
+    cd target/classes/ && jar -cvf mc-summercash-v$VERSION.jar .
     cd ../../
 
     # Install the plugin to the MC test server
-    rm -f server/plugins/mc-summercash-v0.1.jar
-    cp target/classes/mc-summercash-v0.1.jar server/plugins/mc-summercash-v0.1.jar
+    rm -f server/plugins/mc-summercash-v$VERSION.jar
+    cp target/classes/mc-summercash-v$VERSION.jar server/plugins/mc-summercash-v$VERSION.jar
     echo "installed the latest build to the server!"
 
 elif [ "$1" == "--install-server" ]
