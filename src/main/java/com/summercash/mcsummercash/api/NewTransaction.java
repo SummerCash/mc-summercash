@@ -2,6 +2,7 @@ package com.summercash.mcsummercash.api;
 
 import java.io.IOException;
 
+import com.summercash.mcsummercash.common.Common;
 import com.summercash.mcsummercash.database.Database;
 
 // NewTransaction - Create, sign, and publish a transaction to the SummerCash network
@@ -21,10 +22,16 @@ public class NewTransaction {
         System.out.println("recipientAddress: " + recipientAddress);
 
         // Check that the database calls are not null
-        if (senderAddress == null || recipientAddress == null) {
-            System.out.println("db lookup failed");
+        if (senderAddress == null) {
+            System.out.println("db lookup failed on txn sender");
             usernameDB.Close();
-            return null;
+            return Common.UnknownSenderAddress;
+        }
+        
+        if (recipientAddress == null) {
+            System.out.println("db lookup failed on txn recipient");
+            usernameDB.Close();
+            return Common.UnknownRecipientAddress;
         }
         usernameDB.Close();
 

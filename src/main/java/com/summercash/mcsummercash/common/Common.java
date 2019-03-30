@@ -22,7 +22,14 @@ public class Common {
     public static final String TestingAddress1 = "0x040021c2524506b1d724bbd326ca8049f5fa";
     public static final String TestingAddress2 = "0x0400fc65fa379d133abe75dda1d6e4dd5a49";
 
+    // dbPath - The path that the username database will be stored
     public static final String dbPath = "data/";
+
+    // UnknownSenderAddress - Returned when a user without an account tries to make a transaction
+    public static final String UnknownSenderAddress = "unknown sender address";
+
+    // UnknownSenderAddress - Returned when a user tries to make a transaction with an unknown user
+    public static final String UnknownRecipientAddress = "unknown recipient address";
 
     public static void CreateDirIfDoesNotExist(String filename) throws IOException {
         Path path = Paths.get(filename);

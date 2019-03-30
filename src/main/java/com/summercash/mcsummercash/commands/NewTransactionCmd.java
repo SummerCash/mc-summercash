@@ -18,12 +18,17 @@ public class NewTransactionCmd implements CommandExecutor {
 
         // Check that the inputs are not null
         if (args.length != 2) {
-            return false;
+            return false; // So that the command help shows
         }
 
         // Store the values from the command arguments
         recipientUsername = args[0];
-        amount = Double.parseDouble(args[1]);
+        try {
+            amount = Double.parseDouble(args[1]);
+        } catch (Exception e) {
+            sender.sendMessage(args[1] + " is not a number!");
+            return false;
+        }
 
         // Get the sender's username
         String senderUsername = Common.ParseMCUsername(sender.toString());
@@ -35,9 +40,24 @@ public class NewTransactionCmd implements CommandExecutor {
             // Read the server's response
             String response = transactionCreator.Transaction(senderUsername, recipientUsername, amount);
 
-            // Check that the transaction happened
+            // Check that the sender has a summercash account
+            if (response == Common.UnknownSenderAddress) {
+                // sender.sendMessage("That transaction can't happen!");
+                sender.sendMessage("You don't have an account! Create one with /account.");
+                return true;
+            }
+
+            // Check that the recipient account exists
+            if (response == Common.UnknownRecipientAddress) {
+                // sender.sendMessage("That transaction can't happen!");
+                sender.sendMessage(args[0] + " doesn't have a SummerCash account!");
+                return true;
+            }
+
+            // Check that the recipient account exists
             if (response == null) {
-                sender.sendMessage("That transaction can't happen!");
+                // sender.sendMessage("That transaction can't happen!");
+                sender.sendMessage("You don't have enough SMC for that!");
                 return true;
             }
 
@@ -49,7 +69,6 @@ public class NewTransactionCmd implements CommandExecutor {
         // If err != nil
         catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
 
         return true;

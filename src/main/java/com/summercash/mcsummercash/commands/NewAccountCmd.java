@@ -28,7 +28,7 @@ public class NewAccountCmd implements CommandExecutor {
             // Check that an account was actually created
             if (address == null) {
                 sender.sendMessage("You already have an account!");
-                return true; // Or false? probably doesn't matter
+                return true;
             }
             sender.sendMessage("SummerCash account created!");
             sender.sendMessage("Address: " + address);
@@ -36,7 +36,6 @@ public class NewAccountCmd implements CommandExecutor {
 
         catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
         return true;
     }

@@ -28,7 +28,7 @@ public class GetBalanceCmd implements CommandExecutor {
             // Tell the user the balance
             if (response == null) {
                 sender.sendMessage("You don't have an account! Create one with /account.");
-                return true;
+                return true; // True so that the command help doesn't show again (ingame)
             }
 
             // Parse the response & tell the user
@@ -38,12 +38,10 @@ public class GetBalanceCmd implements CommandExecutor {
 
         catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
 
         catch (ParseException e) {
             e.printStackTrace();
-            return false;
         }
 
         return true;
