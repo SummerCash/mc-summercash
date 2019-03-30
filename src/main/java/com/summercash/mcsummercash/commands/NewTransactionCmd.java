@@ -27,7 +27,7 @@ public class NewTransactionCmd implements CommandExecutor {
             amount = Double.parseDouble(args[1]);
         } catch (Exception e) {
             sender.sendMessage(args[1] + " is not a number!");
-            return false;
+            return true;
         }
 
         // Get the sender's username
