@@ -12,6 +12,7 @@ then
     # Install the plugin to the MC test server
     rm -f server/plugins/mc-summercash-v$VERSION.jar
     cp target/classes/mc-summercash-v$VERSION.jar server/plugins/mc-summercash-v$VERSION.jar
+    cp target/classes/mc-summercash-v$VERSION.jar bin/
     echo "installed the latest build to the server!"
 
 elif [ "$1" == "--install-server" ]
