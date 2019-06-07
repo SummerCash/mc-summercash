@@ -15,9 +15,9 @@ This pre-built server does not come with the mc-summercash plugin installed. So,
 ## In-Game Commands
 `/account` creates a new SummerCash account and links it to the player's Minecraft username. A user can only run this command once.
 
-`/balance` displays the amount of SummerCash (SMC) on the user's account. This command will only work if a user has created an account.
+`/bank` displays the amount of SummerCash (SMC) on the user's account. This command will only work if a user has created an account.
 
-`/transaction <recipient> <amount of SMC>` will create, sign, and publish a transaction for the given amount to the SummerCash network. Like `/balance`, this command will only work if a user has created an account.
+`/transaction <recipient> <amount of SMC>` will create, sign, and publish a transaction for the given amount to the SummerCash network. Like `/bank`, this command will only work if a user has created an account.
 
 ## Bugs
 Please report any bugs you find in the `bugs.md` file. A formal write-up is not necessary.
