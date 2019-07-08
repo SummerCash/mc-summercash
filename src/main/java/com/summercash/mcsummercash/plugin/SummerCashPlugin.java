@@ -66,7 +66,6 @@ public class SummerCashPlugin extends JavaPlugin {
         LoadExternalJars();
 
         // Register the commands
-        this.getCommand("test").setExecutor(new TestCmd());
         this.getCommand("account").setExecutor(new NewAccountCmd());
         this.getCommand("sendcash").setExecutor(new NewTransactionCmd());
         this.getCommand("bank").setExecutor(new GetBalanceCmd());
