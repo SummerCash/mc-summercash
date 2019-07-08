@@ -22,8 +22,7 @@ This pre-built server does not come with the mc-summercash plugin installed. So,
 
 `/transaction <recipient> <amount of SMC>` will create, sign, and publish a transaction for the given amount to the SummerCash network. Like `/bank`, this command will only work if a user has created an account.
 
-`/login` assigns a summer.cash address to an authenticated user. This command will only work if the corresponding
-private key is held on the same device as mc-summercash.
+`/login` assigns a summer.cash address to an authenticated user.
 
 ## Bugs
 
