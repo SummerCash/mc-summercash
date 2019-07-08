@@ -5,7 +5,7 @@ then
     # Build the Java code (semi-manually)
     mvn compile
     mkdir -p target/classes/lib
-    cp lib/leveldbjni-all-1.8.jar target/classes/lib
+    cp -a ./lib/. ./target/classes/lib
     cd target/classes/ && jar -cvf mc-summercash-v$VERSION.jar .
     cd ../../
 
