@@ -1,6 +1,6 @@
 package com.summercash.mcsummercash.api;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 // AccountsGeneralRequest - A JSON object for go-summercash account RPC methods
 public class AccountsGeneralRequest {
