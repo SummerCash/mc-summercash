@@ -39,7 +39,7 @@ public class SummerCashPlugin extends JavaPlugin {
     // LoadExternalJars - Load external jars
     private void LoadExternalJars() {
         try {
-            final File[] libs = new File(getDataFolder(), "lib/").listFiles();
+            final File[] libs = new File[] { new File(getDataFolder(), "lib/leveldbjni-all-1.8.jar") };
             for (final File lib : libs) {
                 if (!lib.exists()) {
                     JarUtils.extractFromJar(lib.getName(), lib.getAbsolutePath());
