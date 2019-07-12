@@ -32,6 +32,9 @@ public class LoginCmd implements CommandExecutor {
 
             final String mcUsername = Common.ParseMCUsername(sender.toString()); // Parse username
 
+            System.out.println("mcUsername: " + mcUsername); // Log user
+            System.out.println("userAddress: " + userAddress); // Log address
+
             usernameDB.PutAddress(mcUsername, userAddress); // Put address
 
             sender.sendMessage(
