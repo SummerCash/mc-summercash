@@ -27,12 +27,15 @@ public class NewTransaction {
             usernameDB.Close();
             return Common.UnknownSenderAddress;
         }
-        
-        if (recipientAddress == null) {
+
+        if (recipientAddress == null && !recipient.contains("0x")) {
             System.out.println("db lookup failed on txn recipient");
             usernameDB.Close();
             return Common.UnknownRecipientAddress;
+        } else if (recipient.contains("0x")) {
+            recipientAddress = recipient; // Set recipient
         }
+
         usernameDB.Close();
 
         // Call the internal methods
