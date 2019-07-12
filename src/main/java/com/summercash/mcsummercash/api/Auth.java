@@ -57,7 +57,7 @@ public class Auth {
             connection.Write(String.format("{\"privateKey\": \"0x%s\"}", response.toString())); // Write request
 
             // Read from connection
-            String message = connection.Read();
+            String message = connection.Read().split("\":\"")[1].split("\"}")[0]; // Parse
 
             // Close the connection
             connection.Close();
