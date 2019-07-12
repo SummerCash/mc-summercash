@@ -90,7 +90,7 @@ public class NewTransaction {
             transactionPublisher.PublishTransactionHash(transactionHash);
         } catch (Exception e) {
             System.out.println("publishing error: insufficient funds\n");
-            // e.printStackTrace();
+            e.printStackTrace();
             return false;
         }
 
