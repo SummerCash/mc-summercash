@@ -27,6 +27,8 @@ public class AddressCmd implements CommandExecutor {
                 return true; // Return
             }
 
+            usernameDB.Close(); // Close DB
+
             sender.sendMessage(address); // Log address
 
             return true;
