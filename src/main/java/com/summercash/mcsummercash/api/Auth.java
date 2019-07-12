@@ -54,9 +54,7 @@ public class Auth {
             }
 
             Connection connection = new Connection("accounts.Accounts/AccountFromKey"); // Create a connection
-
-            AccountsGeneralRequest req = new AccountsGeneralRequest("", response.toString()); // Send the req
-            connection.Write(req.GetRequest());
+            connection.Write(String.format("{\"privateKey\": \"0x%s\"}", response.toString())); // Write request
 
             // Read from connection
             String message = connection.Read();
