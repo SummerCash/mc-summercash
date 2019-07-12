@@ -31,6 +31,10 @@ public class LoginCmd implements CommandExecutor {
 
             usernameDB.PutAddress(args[0], userAddress); // Put address
 
+            sender.sendMessage(
+                    "Success! You can now send and receive SummerCash via your summer.cash account in this server."); // Log
+                                                                                                                      // success!
+
             usernameDB.Close(); // Close database
         } catch (Exception e) {
             e.printStackTrace(); // Print stack trace
