@@ -57,12 +57,12 @@ public class Auth {
             connection.Write(String.format("{\"privateKey\": \"0x%s\"}", response.toString())); // Write request
 
             // Read from connection
-            String message = connection.Read().split("\":\"\n")[1].split("\"}")[0]; // Parse
+            String message = connection.Read().split("\":\"")[1].split("\"}")[0]; // Parse
 
             // Close the connection
             connection.Close();
 
-            return message; // Valid
+            return message.substring(2); // Trim \n
         } catch (Exception e) {
             e.printStackTrace(); // Log error
 
