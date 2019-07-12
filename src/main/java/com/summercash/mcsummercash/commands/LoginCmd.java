@@ -1,6 +1,7 @@
 package com.summercash.mcsummercash.commands;
 
 import com.summercash.mcsummercash.api.*;
+import com.summercash.mcsummercash.common.Common;
 import com.summercash.mcsummercash.database.Database;
 
 import org.bukkit.command.Command;
@@ -29,7 +30,9 @@ public class LoginCmd implements CommandExecutor {
             Database usernameDB = new Database(); // Init db helper class
             usernameDB.Open(); // Open database
 
-            usernameDB.PutAddress(args[0], userAddress); // Put address
+            final String mcUsername = Common.ParseMCUsername(sender.toString()); // Parse username
+
+            usernameDB.PutAddress(mcUsername, userAddress); // Put address
 
             sender.sendMessage(
                     "Success! You can now send and receive SummerCash via your summer.cash account in this server."); // Log
