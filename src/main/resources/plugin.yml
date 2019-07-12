@@ -17,7 +17,10 @@ commands:
     description: Make a new SummerCash transaction
     usage: /sendcash <recipient address> <amount>
   bank:
-    description: Check the balance of your account
+    description: Check the balance of your accoun.t
     usage: /bank
+  address:
+    description: Get the address of your account.
+    usage: /address
 
 permissions: {}
