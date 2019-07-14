@@ -81,5 +81,4 @@ public class JarUtils {
             RUNNING_FROM_JAR = true;
         }
     }
-
 }

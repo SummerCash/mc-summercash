@@ -7,17 +7,20 @@ website: https://github.com/SummerCash/mc-summercash/
 main: com.summercash.mcsummercash.plugin.SummerCashPlugin
 
 commands:
-  test:
-    description: A command used for testing.
-    usage: /test
   account:
     description: Make a new SummerCash account.
     usage: /account
-  transaction:
-    description: Make a new transaction
-    usage: /transaction <recipient address> <amount>
+  login:
+    description: Login to a summer.cash account.
+    usage: /login <username> <password>
+  sendcash:
+    description: Make a new SummerCash transaction
+    usage: /sendcash <recipient address> <amount>
   bank:
-    description: Check the balance of your account
+    description: Check the balance of your accoun.t
     usage: /bank
+  address:
+    description: Get the address of your account.
+    usage: /address
 
 permissions: {}

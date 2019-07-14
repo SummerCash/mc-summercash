@@ -1,23 +1,29 @@
 # mc-summercash
+
 A Minecraft plugin allowing players to transfer their SummerCash within Minecraft.
 
 v1.0 has just been released!
 
 ## Usage
+
 The build.sh script is quite handy. Use it like so:
 
 To quickly download and install a pre-built 1.13.2 Minecraft Bukkit/Spigot server, use
-```./build.sh --install-server```.
-You can then run ```cd server/ && ./start.sh``` to start the Bukkit/Spigot server.
+`./build.sh --install-server`.
+You can then run `cd server/ && ./start.sh` to start the Bukkit/Spigot server.
 
-This pre-built server does not come with the mc-summercash plugin installed. So, to build the plugin and install it into the minecraft server, run ```./build.sh --build```.
+This pre-built server does not come with the mc-summercash plugin installed. So, to build the plugin and install it into the minecraft server, run `./build.sh --build`.
 
 ## In-Game Commands
+
 `/account` creates a new SummerCash account and links it to the player's Minecraft username. A user can only run this command once.
 
 `/bank` displays the amount of SummerCash (SMC) on the user's account. This command will only work if a user has created an account.
 
 `/transaction <recipient> <amount of SMC>` will create, sign, and publish a transaction for the given amount to the SummerCash network. Like `/bank`, this command will only work if a user has created an account.
 
+`/login` assigns a summer.cash address to an authenticated user.
+
 ## Bugs
+
 Please report any bugs you find in the `bugs.md` file. A formal write-up is not necessary.
